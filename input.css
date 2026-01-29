@@ -22,33 +22,60 @@
             radial-gradient(at 100% 100%, hsla(270, 100%, 50%, 0.1) 0px, transparent 50%);
     }
 
+    /* 1. MAIN CONTAINER: Hard Split */
     .hero-wrapper {
-        display: flex;
-        justify-content: space-between;
-        /* Pushes items to far left and right */
+        display: grid;
+        grid-template-columns: 48% 48%;
+        /* Two columns with a 4% safety gap in the middle */
+        gap: 4%;
+        /* The gap protects the image */
         align-items: center;
+        /* Center vertically */
         width: 100%;
-        padding: 0 5%;
-        /* 5% padding on far left and right edges */
-        gap: 8%;
-        /* The "No Man's Land" in the middle */
+        max-width: 100%;
+        overflow: hidden;
+        /* No scrolling */
+        padding: 0 20px;
+        /* Safety padding on edges */
+        box-sizing: border-box;
     }
 
+    /* 2. TEXT COLUMN: Left Side */
     .hero-text-side {
-        width: 45%;
-        /* Restrict width so it stays on the left */
-        /* Ensure text aligns left */
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
     }
 
+    /* 3. THE TITLE: Fluid Typography (The Critical Fix) */
+    .hero-text-side h1 {
+        /* "6vw" means the font is always 6% of the screen width. 
+           This guarantees it stays huge but fits in the 48% column. */
+        font-size: 6vw;
+        line-height: 0.9;
+        /* Tight spacing */
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        width: 100%;
+
+        /* Safety: If screen is weirdly small, don't let words break ugly */
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* 4. IMAGE COLUMN: Right Side */
     .hero-image-side {
-        width: 45%;
-        /* Restrict image to the right */
         display: flex;
         justify-content: flex-end;
-        /* Anchor image to the right */
+        /* Push image to far right */
+        height: 100%;
+    }
+
+    .hero-image-side img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .heartbeat-line {
@@ -77,5 +104,19 @@
 
     .animate-marquee {
         animation: marquee 20s linear infinite;
+    }
+}
+
+/* MOBILE RESET */
+@media (max-width: 768px) {
+    .hero-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+    }
+
+    .hero-text-side h1 {
+        font-size: 48px;
+        /* Fixed size on mobile */
     }
 }
