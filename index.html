@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-brand-dark cursor-none">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$VITACRYPT | 💊 THE CURE FOR JEETISM</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/logo-new.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="$VITACRYPT | The Degen Clinic">
+    <meta property="og:description"
+        content="Encrypting Gains, Diagnosing Degens. The only token that prioritizes your financial health.">
+    <meta property="og:image" content="surgeon.png">
+
+    <style>
+        .animate-ecg {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: ecg 4s linear infinite;
+        }
+
+        @keyframes ecg {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .animate-text-encrypt {
+            animation: glitch 1s infinite;
+        }
+
+        .cursor-follow {
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+
+        .custom-cursor {
+            width: 30px;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2339FF14'%3E%3Cpath d='M19.14 12.94c.04-.3.06-.61.06-.94 0-3.87-3.13-7-7-7-1.08 0-2.09.25-3 .68V4.41c0-.78-.63-1.41-1.41-1.41H6.41C5.63 3 5 3.63 5 4.41v3.18c-1.31 1.25-2.22 2.92-2.5 4.81h2.02c.26-1.12.97-2.07 1.9-2.73V13h2v-2.18c.95-.55 2.05-.82 3.23-.82 2.76 0 5 2.24 5 5 0 .28-.02.55-.06.82l2.55 2.12zM7 13v6h2v-6H7zm6 3c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* Spark effects */
+        .spark {
+            position: absolute;
+            background: #39FF14;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: spark-fly 1s ease-out forwards;
+        }
+
+        @keyframes spark-fly {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .neon-border {
+            box-shadow: 0 0 10px #39FF14, inset 0 0 10px #39FF14;
+        }
+
+        /* Glitch text effect */
+        .glitch-wrapper {
+            position: relative;
+        }
+
+        .glitch-wrapper::before,
+        .glitch-wrapper::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scroll-reveal span {
+            display: inline-block;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        .glitch-wrapper {
+            animation: shake 3s infinite;
+            display: inline-block;
+            /* Ensure transform applies correctly */
+        }
+
+        @keyframes shake {
+            0% {
+                transform: skew(0deg);
+            }
+
+            5% {
+                transform: skew(2deg);
+            }
+
+            10% {
+                transform: skew(-2deg);
+            }
+
+            15% {
+                transform: skew(0deg);
+            }
+
+            100% {
+                transform: skew(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-white font-body overflow-x-hidden selection:bg-brand-primary selection:text-brand-dark bg-void-black">
+
+    <!-- Global Overlay -->
+    <div
+        class="fixed inset-0 pointer-events-none z-40 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay">
+    </div>
+    <div
+        class="fixed inset-0 pointer-events-none z-30 bg-gradient-to-b from-transparent via-white/5 to-transparent animate-scanline">
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor-follow custom-cursor hidden md:block"></div>
+
+    <!-- Floating Background Elements (The "Chaos" Layer) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float-slow rotate-12 filter blur-sm">💊</div>
+        <div class="absolute top-1/3 right-20 text-8xl opacity-10 animate-float-medium -rotate-45">💉</div>
+        <div class="absolute bottom-40 left-20 text-6xl opacity-10 animate-bounce-slow">🛡️</div>
+        <div class="absolute top-40 right-1/4 text-5xl opacity-20 animate-float-fast">🚀</div>
+    </div>
+
+    <style>
+        /* Custom Float Animations */
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(12deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+        }
+
+        @keyframes float-medium {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(-35deg);
+            }
+        }
+
+        @keyframes float-fast {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-60px);
+            }
+        }
+
+        .animate-float-slow {
+            animation: float-slow 8s ease-in-out infinite;
+        }
+
+        .animate-float-medium {
+            animation: float-medium 6s ease-in-out infinite;
+        }
+
+        .animate-float-fast {
+            animation: float-fast 4s ease-in-out infinite;
+        }
+    </style>
+
+    <!-- Navbar -->
+    <header
+        class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 bg-black/50 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <img src="/logo-new.jpg" alt="$VITACRYPT Logo"
+                    class="w-24 h-24 md:w-28 md:h-28 rounded-full animate-heartbeat shadow-[0_0_15px_#39FF14]">
+                <span
+                    class="text-white font-syne font-bold text-xl tracking-tighter group-hover:text-tox-green transition-colors">$VITACRYPT</span>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#vitals" class="text-sm font-mono text-gray-400 hover:text-white transition-colors">VITALS</a>
+                <a href="#ward" class="text-sm font-mono text-gray-400 hover:text-white transition-colors">THE WARD</a>
+                <a href="#roadmap"
+                    class="text-sm font-mono text-gray-400 hover:text-white transition-colors">STRATEGY</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex flex-col items-end">
+                    <span class="text-[10px] text-gray-500 font-mono">SOL/USD</span>
+                    <span class="text-xs text-tox-green font-mono font-bold">$142.69 <span
+                            class="animate-pulse">●</span></span>
+                </div>
+
+                <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
+                    class="bg-tox-green text-black font-black px-6 py-2 rounded-full hover:scale-105 transition-transform uppercase text-sm shadow-[0_0_20px_rgba(57,255,20,0.4)] flex items-center justify-center">
+                    APE IN 💊
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-tox-green text-3xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-black/95 z-[9998] hidden flex-col items-center justify-center gap-8 transition-all duration-300">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-tox-green text-4xl">&times;</button>
+            <a href="#vitals" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">VITALS</a>
+            <a href="#ward" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">THE WARD</a>
+            <a href="#roadmap" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">STRATEGY</a>
+        </div>
+    </header>
+
+    <!-- Hero Section: THE EMERGENCY ROOM -->
+    <section class="relative min-h-screen pt-24 pb-12 flex items-center overflow-hidden bg-black">
+        <div
+            class="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center overflow-hidden relative z-10 pt-10">
+
+            <div class="flex-1 w-full md:w-1/2 p-5 pr-10 pl-10 md:pl-20 !bg-black z-20 space-y-8 order-1">
+                <!-- System Status -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 border border-brand-primary/50 bg-brand-primary/10 rounded font-mono text-brand-primary text-sm animate-pulse">
+                    <span class="w-2 h-2 bg-brand-primary rounded-full"></span>
+                    [!] SYSTEM STATUS: <span id="system-status">HYPER-BULLISH</span>
+                </div>
+
+                <!-- Headline -->
+                <h1
+                    class="font-display font-extrabold leading-[0.95] text-[clamp(48px,7vw,100px)] uppercase w-full mb-5">
+                    <span class="glitch-wrapper">ENCRYPTING</span> <span
+                        class="text-brand-primary glitch-effect">GAINS</span>,<br>
+                    DIAGNOSING <span class="text-brand-accent">DEGENS</span>
+                </h1>
+
+                <p class="text-gray-400 text-lg md:text-xl font-mono max-w-lg border-l-2 border-brand-primary pl-4">
+                    "The only token prescribed by actual degens. Side effects include: wealth, euphoria, and diamond
+                    hands."
+                </p>
+
+                <!-- CTA -->
+                <div class="flex flex-col gap-6">
+                    <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
+                        class="group relative inline-flex items-center justify-center px-12 py-6 overflow-hidden rounded-full bg-tox-green text-black font-black uppercase tracking-tighter text-2xl shadow-[0_0_40px_rgba(57,255,20,0.6)] animate-heartbeat hover:scale-105 transition-transform duration-200">
+                        <span class="relative z-10 flex items-center gap-2">
+                            INJECT $VITACRYPT <span class="text-3xl">💉</span>
+                        </span>
+                        <div
+                            class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
+                    </a>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://t.me/VitaCryptDegens" target="_blank"
+                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
+                            <span>🩺</span> JOIN CLINIC
+                        </a>
+                        <a href="https://x.com/vita_crypt" target="_blank"
+                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
+                            <span>🚀</span> FOLLOW X
+                        </a>
+                        <a href="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk"
+                            target="_blank"
+                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
+                            <span>📊</span> DEXSCREENER
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image & Chart -->
+            <div class="flex-1 w-full md:w-1/2 flex justify-end relative order-2">
+                <!-- DexScreener Widget -->
+                <div
+                    class="absolute -right-4 -bottom-10 z-30 w-72 md:w-80 border-2 border-brand-primary bg-black rounded-xl overflow-hidden shadow-[0_0_20px_rgba(57,255,20,0.4)] transform rotate-2 hover:rotate-0 transition-transform hidden md:block">
+                    <div class="bg-brand-primary text-black text-[10px] font-bold px-2 py-1 flex justify-between">
+                        <span>LIVE VITALS // SOLUSDT</span>
+                        <span class="animate-pulse">● REC</span>
+                    </div>
+                    <style>
+                        #dexscreener-embed {
+                            position: relative;
+                            width: 100%;
+                            padding-bottom: 125%;
+                        }
+
+                        @media(min-width:1400px) {
+                            #dexscreener-embed {
+                                padding-bottom: 65%;
+                            }
+                        }
+
+                        #dexscreener-embed iframe {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            border: 0;
+                        }
+                    </style>
+                    <div id="dexscreener-embed"><iframe
+                            src="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk?embed=1&theme=dark"
+                            allow="clipboard-write"
+                            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10">
+                </div>
+
+                <img src="surgeon.png" alt="The Surgeon"
+                    class="max-w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 filter drop-shadow-[0_0_50px_rgba(57,255,20,0.3)] animate-[pulse-slow_4s_infinite]"
+                    style="mask-image: linear-gradient(to right, transparent, black 10%); -webkit-mask-image: linear-gradient(to right, transparent, black 10%);">
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Hype Ticker (Marquee) -->
+    <div class="w-full bg-black border-y border-tox-green/30 overflow-hidden py-2 relative z-20">
+        <div class="whitespace-nowrap animate-marquee flex gap-8">
+            <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
+                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+            </span>
+            <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
+                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+            </span>
+            <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
+                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+            </span>
+        </div>
+    </div>
+
+    <!-- Live Vitals Monitor -->
+    <section id="vitals" class="py-12 bg-black px-6">
+        <div
+            class="w-full max-w-3xl mx-auto border-4 border-gray-800 bg-black rounded-xl p-4 shadow-[0_0_50px_rgba(0,0,0,0.8)] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none z-10"></div>
+
+            <!-- Hacker Terminal Background -->
+            <div
+                class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden font-mono text-[10px] text-tox-green leading-none break-all z-0 select-none">
+                01010101 VITACRYPT INJECTING 010100101 GAINS LOADING... 99% 0101010101
+                SYSTEM_CHECK: OK ... WALLET_SCAN: RICH ... JEET_SCAN: NEGATIVE ...
+                0101010101010101010101010101010101010101010101010101010101010101
+                01010101 VITACRYPT INJECTING 010100101 GAINS LOADING... 99% 0101010101
+                SYSTEM_CHECK: OK ... WALLET_SCAN: RICH ... JEET_SCAN: NEGATIVE ...
+                0101010101010101010101010101010101010101010101010101010101010101
+                01010101 VITACRYPT INJECTING 010100101 GAINS LOADING... 99% 0101010101
+                SYSTEM_CHECK: OK ... WALLET_SCAN: RICH ... JEET_SCAN: NEGATIVE ...
+                0101010101010101010101010101010101010101010101010101010101010101
+                01010101 VITACRYPT INJECTING 010100101 GAINS LOADING... 99% 0101010101
+                SYSTEM_CHECK: OK ... WALLET_SCAN: RICH ... JEET_SCAN: NEGATIVE ...
+            </div>
+
+            <div class="flex justify-between items-center mb-2 border-b border-gray-800 pb-2 relative z-20">
+                <span class="text-xs font-mono text-gray-500">MONITORING: SOL/USD</span>
+                <div class="flex gap-2">
+                    <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    <span class="text-xs font-mono text-tox-green">LIVE</span>
+                </div>
+            </div>
+
+            <canvas id="vitals-monitor" class="relative z-20"></canvas>
+        </div>
+    </section>
+
+    <!-- Section 1: THE DIAGNOSIS -->
+    <section id="ward" class="py-24 border-t border-brand-primary/20 relative bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">THE <span
+                        class="text-brand-accent">DIAGNOSIS</span></h2>
+                <div class="w-24 h-1 bg-brand-primary mx-auto"></div>
+            </div>
+
+            <div class="mb-12 p-8 border border-tox-green/30 bg-[#111] rounded-2xl relative overflow-hidden">
+                <h3 class="text-2xl font-bold text-tox-green mb-4 font-syne uppercase">The Irony Angle 🧬</h3>
+                <p class="text-gray-300 font-mono text-sm md:text-base leading-relaxed">
+                    We've identified the "Personal Health" narrative as a high-overhead challenge. Our solution? <span
+                        class="text-tox-green font-bold">Leaning into the irony.</span> $VITACRYPT isn't just about
+                    medical data—it's about the vitality of your portfolio. We are the "Degen Doctors" curing the "FUD
+                    Flu."
+                </p>
+                <div class="flex gap-4 mt-6">
+                    <span class="px-3 py-1 border border-gray-700 rounded text-xs text-gray-400">#PRODEGEN</span>
+                    <span class="px-3 py-1 border border-gray-700 rounded text-xs text-gray-400">#HEALTHYCHART</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Condition Cards -->
+                <div class="space-y-6">
+                    <div
+                        class="border border-white/10 bg-white/5 p-6 rounded hover:border-brand-primary transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(57,255,20,0.2)] group">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-xl font-bold font-display text-red-500 group-hover:text-red-400">PAPER HAND
+                                SYNDROME</h3>
+                            <span
+                                class="text-xs font-mono border border-red-500 text-red-500 px-2 py-1 rounded">CRITICAL</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Symptoms: Panic selling at -5%, checking chart every 3
+                            seconds, allergy to gains.</p>
+                        <div class="text-brand-primary text-sm font-bold flex items-center gap-2">
+                            <span>Rx:</span> Cryogenic Freezing in Vita-Vault
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-white/10 bg-white/5 p-6 rounded hover:border-brand-accent transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(188,19,254,0.2)] group">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-xl font-bold font-display text-yellow-400">FOMO FEVER</h3>
+                            <span
+                                class="text-xs font-mono border border-yellow-400 text-yellow-400 px-2 py-1 rounded">ACUTE</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Symptoms: Buying tops, chasing green candles, ignoring red
+                            flags.</p>
+                        <div class="text-brand-accent text-sm font-bold flex items-center gap-2">
+                            <span>Rx:</span> 100mg of Encrypted Alpha Daily
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual (Hover Switch Effect) -->
+                <div
+                    class="relative border-4 border-brand-primary/30 rounded-xl overflow-hidden shadow-[0_0_50px_rgba(57,255,20,0.1)]">
+                    <div class="absolute top-0 left-0 bg-brand-primary text-black font-bold px-4 py-1 text-xs z-20">
+                        BEFORE / AFTER</div>
+
+                    <style>
+                        .meme-image {
+                            width: 100%;
+                            height: 400px;
+                            /* Adjust height as needed */
+                            background-image: url('/sad.jpg');
+                            background-size: cover;
+                            background-position: center;
+                            transition: background-image 0.1s ease-in-out;
+                            cursor: pointer;
+                        }
+
+                        .meme-image:hover {
+                            background-image: url('/maniac.png');
+                        }
+                    </style>
+
+                    <div class="meme-card w-full">
+                        <div class="meme-image w-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: ENCRYPTED ALPHA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-16 text-right">ENCRYPTED <span
+                    class="text-brand-primary">ALPHA</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-black border border-white/10 p-8 rounded-2xl hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(57,255,20,0.2)] transition-all group text-center">
+                    <div
+                        class="w-20 h-20 mx-auto bg-brand-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="text-4xl">❤️‍🔥</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-display mb-4">VITALITY</h3>
+                    <p class="text-gray-400 text-sm">
+                        Resurrecting dead wallets with high-volatility shocks. The heartbeat of the Solana ecosystem.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-black border border-white/10 p-8 rounded-2xl hover:border-brand-accent/50 hover:shadow-[0_0_30px_rgba(188,19,254,0.2)] transition-all group text-center transform md:-translate-y-8">
+                    <div
+                        class="w-20 h-20 mx-auto bg-brand-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="text-4xl">🩺</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-display mb-4">DIAGNOSIS</h3>
+                    <p class="text-gray-400 text-sm">
+                        AI-powered analysis of on-chain data to identify "sick" trends before they become terminal.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-black border border-white/10 p-8 rounded-2xl hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(57,255,20,0.2)] transition-all group text-center">
+                    <div
+                        class="w-20 h-20 mx-auto bg-brand-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="text-4xl">💊</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-display mb-4">PRESCRIPTION</h3>
+                    <p class="text-gray-400 text-sm">
+                        Take two doses of $VITACRYPT and call me in the morning when you're rich.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: STRATEGIC PLAYBOOK -->
+    <!-- Section: THE SAINT (Immunity Protocol) -->
+    <section class="py-24 relative overflow-hidden bg-black border-y border-cyber-purple/30">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(188,19,254,0.15),_transparent_70%)] pointer-events-none">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="relative flex justify-center">
+                <div class="absolute inset-0 bg-cyber-purple blur-[80px] opacity-40 animate-pulse"></div>
+                <img src="saint.png" alt="Saint Mascot"
+                    class="relative z-10 w-full max-w-sm drop-shadow-[0_0_30px_#BC13FE] animate-float-slow">
+            </div>
+
+            <div>
+                <div
+                    class="inline-block bg-cyber-purple/20 border border-cyber-purple text-cyber-purple px-3 py-1 rounded text-xs font-mono mb-4">
+                    ANTI-RUG PROTOCOL: ACTIVE
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 font-syne uppercase">
+                    Protected by <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-purple to-white">The
+                        Saint</span>
+                </h2>
+                <p class="text-gray-300 font-mono text-lg mb-8 leading-relaxed">
+                    The only doctor who treats "Rug-Pull PTSD". Our liquidity is blessed, burnt, and monitored 24/7.
+                    Jeet spirits are exorcised on entry.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-cyber-purple transition-colors">
+                        <span class="text-2xl">🔥</span>
+                        <div>
+                            <div class="text-white font-bold text-sm">LP BURNT</div>
+                            <div class="text-xs text-gray-500">100% Permanently</div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 hover:border-cyber-purple transition-colors">
+                        <span class="text-2xl">🛡️</span>
+                        <div>
+                            <div class="text-white font-bold text-sm">MINT REVOKED</div>
+                            <div class="text-xs text-gray-500">Absolute Cap</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: STRATEGIC PLAYBOOK -->
+    <section id="roadmap" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-16 font-syne">STRATEGIC PLAYBOOK <span
+                class="text-tox-green">///</span></h2>
+
+        <div class="space-y-20">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold text-tox-green mb-4 flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full border-2 border-tox-green"></span>
+                        PHASE 1: TRIAGE <span class="text-sm font-light text-gray-500 ml-2">(INITIAL PUMP)</span>
+                    </h3>
+                    <p class="text-gray-400 font-mono">Operation: SHILL SHOCK. We don't ask for attention, we inject it.
+                        Flooding the timeline with high-dose memes until they have no choice but to buy.</p>
+                </div>
+                <div class="bg-[#111] p-6 rounded-2xl border border-gray-800 relative overflow-hidden">
+                    <div
+                        class="absolute -top-4 -right-4 bg-yellow-400 text-black font-black text-xs px-2 py-1 transform rotate-12 shadow-lg z-10 border-2 border-black">
+                        DOC APPROVED ✅
+                    </div>
+                    <div class="font-mono text-sm text-green-400 mb-2">Doc's orders:</div>
+                    <p class="text-white font-mono">"Get your $VITACRYPT dose NOW! This chart is healthier than your
+                        grandma after a green juice cleanse... #VITACRYPT"</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold text-cyber-purple mb-4 flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full border-2 border-cyber-purple"></span>
+                        PHASE 2: SURGERY <span class="text-sm font-light text-gray-500 ml-2">(MARKETING PUSH)</span>
+                    </h3>
+                    <p class="text-gray-400 font-mono">Gamified challenges to trigger algorithms on DexScreener,
+                        Birdeye, and every Degen's radar.</p>
+                </div>
+                <div class="bg-[#111] p-6 rounded-2xl border border-gray-800">
+                    <ul class="space-y-3 font-mono text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><span class="text-cyber-purple">•</span> Coordinated "Buy
+                            Sessions"</li>
+                        <li class="flex items-center gap-2"><span class="text-cyber-purple">•</span> LP Burn
+                            Transparency
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-cyber-purple">•</span> Micro-buy Velocity
+                            Contests</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full border-2 border-white"></span>
+                        PHASE 3: DISCHARGE <span class="text-sm font-light text-gray-500 ml-2">(MOON MISSION)</span>
+                    </h3>
+                    <p class="text-gray-400 font-mono">Full ecosystem deployment. Patients discharged with life-changing
+                        portfolios. The cure spreads globally.</p>
+                </div>
+                <div class="bg-[#111] p-6 rounded-2xl border border-gray-800">
+                    <ul class="space-y-3 font-mono text-sm text-gray-300">
+                        <li class="flex items-center gap-2"><span class="text-white">•</span> Tier 1 CEX Listings</li>
+                        <li class="flex items-center gap-2"><span class="text-white">•</span> Vita-Vault DAO Launch</li>
+                        <li class="flex items-center gap-2"><span class="text-white">•</span> Global Marketing Campaign
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: THE VITA-VAULT -->
+    <section class="py-20 bg-[#0A0A0A]">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-black text-white mb-6 font-syne">THE VITA-VAULT <br><span
+                        class="text-tox-green">COMMUNITY</span></h2>
+                <p class="text-gray-400 font-mono mb-8">We don't just have holders; we have medical staff. 24/7
+                    engagement
+                    and absolute transparency.</p>
+
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tox-green/10 p-3 rounded-lg text-tox-green">📢</div>
+                        <div>
+                            <h4 class="text-white font-bold">Daily Voice Chats</h4>
+                            <p class="text-gray-500 text-sm">Real-time market "diagnoses".</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tox-green/10 p-3 rounded-lg text-tox-green">🤖</div>
+                        <div>
+                            <h4 class="text-white font-bold">Health Report Bot</h4>
+                            <p class="text-gray-500 text-sm">Automated stats on holder growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div
+                    class="bg-black border border-gray-800 p-6 rounded-2xl hover:border-tox-green transition-colors text-center">
+                    <div class="text-3xl mb-2">🩺</div>
+                    <div class="text-white font-bold text-sm">Degen Doctor Bot</div>
+                </div>
+                <div
+                    class="bg-black border border-gray-800 p-6 rounded-2xl hover:border-tox-green transition-colors text-center">
+                    <div class="text-3xl mb-2">💊</div>
+                    <div class="text-white font-bold text-sm">Vita-Boost Doses</div>
+                </div>
+                <div
+                    class="bg-black border border-cyber-purple p-6 rounded-2xl hover:border-cyber-purple transition-colors text-center shadow-[0_0_15px_rgba(188,19,254,0.1)]">
+                    <div class="text-3xl mb-2">💎</div>
+                    <div class="text-white font-bold text-sm">Diamond Immunity</div>
+                </div>
+                <div
+                    class="bg-black border border-gray-800 p-6 rounded-2xl hover:border-tox-green transition-colors text-center">
+                    <div class="text-3xl mb-2">📈</div>
+                    <div class="text-white font-bold text-sm">Parabolic Vitals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Green Footer CTA -->
+    <!-- Big Green Footer CTA -->
+    <section class="w-full bg-tox-green py-24 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-5xl md:text-7xl font-black text-black italic mb-6 font-syne transform -skew-x-6">
+                READY FOR YOUR CHECK-UP?
+            </h2>
+            <p class="text-black font-mono font-bold text-xl mb-10 tracking-widest uppercase">
+                Don't be a paper hand patient. Ape now.
+            </p>
+            <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
+                class="inline-block bg-black text-tox-green text-2xl font-black py-5 px-12 rounded-full hover:scale-105 transition-transform shadow-2xl">
+                INJECT $VITACRYPT →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center relative z-10">
+            <!-- The Saint Badge -->
+            <div class="relative group cursor-pointer mb-8">
+                <div class="absolute inset-0 bg-brand-accent/30 rounded-full blur-xl animate-pulse"></div>
+                <img src="saint.png" alt="The Saint"
+                    class="w-64 h-64 rounded-full border-4 border-brand-accent shadow-[0_0_60px_rgba(188,19,254,0.4)] animate-float relative z-10">
+                <div
+                    class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-brand-accent px-4 py-1 rounded-full text-black font-bold text-xs uppercase tracking-widest whitespace-nowrap border-2 border-white z-20">
+                    PROTECTED BY THE SAINT
+                </div>
+            </div>
+
+            <h2
+                class="text-5xl md:text-7xl font-display font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">
+                BECOME IMMUNE TO FUD
+            </h2>
+
+            <div class="flex flex-wrap gap-4 mt-8 mb-12">
+                <a href="https://t.me/VitaCryptDegens" target="_blank"
+                    class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
+                    TELEGRAM
+                </a>
+                <a href="https://x.com/vita_crypt" target="_blank"
+                    class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
+                    TWITTER / X
+                </a>
+                <a href="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk" target="_blank"
+                    class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
+                    DEXSCREENER
+                </a>
+                <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
+                    class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
+                    BUY ON PUMP.FUN
+                </a>
+            </div>
+
+            <p class="text-gray-600 text-[10px] uppercase font-mono tracking-widest max-w-2xl">
+                DISCLAIMER: $VITACRYPT IS A SOLANA MEMECOIN FOR ENTERTAINMENT PURPOSES ONLY. IT HAS NO INTRINSIC VALUE.
+                CONSULT YOUR DOCTOR IF ERECTION LASTS MORE THAN 4 HOURS. NOT FINANCIAL ADVICE. DYOR.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile Footer -->
+    <div
+        class="fixed bottom-0 left-0 w-full z-50 p-4 md:hidden bg-gradient-to-t from-black via-black to-transparent pt-8">
+        <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
+            class="flex items-center justify-center w-full bg-tox-green text-black font-black font-syne text-xl py-4 rounded-xl shadow-[0_0_20px_#39FF14] animate-pulse">
+            INJECT NOW 💊
+        </a>
+    </div>
+
+    <!-- Meme Popups Container -->
+    <div id="popups" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        // Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', (e) => {
+            // Spark effect
+            createSparks(e.clientX, e.clientY);
+            cursor.style.transform = 'scale(0.8)';
+        });
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)';
+        });
+
+        function createSparks(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                document.body.appendChild(spark);
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 50;
+                const tx = Math.cos(angle) * distance + 'px';
+                const ty = Math.sin(angle) * distance + 'px';
+
+                spark.style.left = x + 'px';
+                spark.style.top = y + 'px';
+                spark.style.setProperty('--tx', tx);
+                spark.style.setProperty('--ty', ty);
+
+                setTimeout(() => spark.remove(), 1000);
+            }
+        }
+
+        // Random Patients Popup
+        const patients = [
+            "Patient #420 just injected 10 SOL",
+            "Patient #6942 cured Paper Hands",
+            "Dr. Chad prescribed 1000 $VITA",
+            "Emergency: FOMO levels Critical!",
+            "Patient #007 discharged with 100x gains",
+            "New admission: Vitalik Buterin?"
+        ];
+
+        function showPopup() {
+            const text = patients[Math.floor(Math.random() * patients.length)];
+            const popup = document.createElement('div');
+            popup.className = 'bg-brand-surface border-l-4 border-brand-primary p-4 rounded shadow-lg transform translate-y-10 opacity-0 transition-all duration-500 font-mono text-sm max-w-xs pointer-events-auto';
+            popup.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">💉</span>
+                    <div>
+                        <div class="font-bold text-brand-primary">STATUS UPDATE</div>
+                        <div class="text-gray-300 text-xs">${text}</div>
+                    </div>
+                </div>
+            `;
+
+            const container = document.getElementById('popups');
+            container.appendChild(popup);
+
+            // Animate in
+            requestAnimationFrame(() => {
+                popup.classList.remove('translate-y-10', 'opacity-0');
+            });
+
+            // Remove
+            setTimeout(() => {
+                popup.classList.add('opacity-0', 'translate-x-10');
+                setTimeout(() => popup.remove(), 500);
+            }, 4000);
+
+            // Schedule next
+            setTimeout(showPopup, Math.random() * 5000 + 3000); // 3-8 seconds
+        }
+
+        // Start popups after 2s
+        setTimeout(showPopup, 2000);
+
+        // Text Scramble Effect on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // trigger glitch if needed
+                }
+            });
+        });
+
+        // Dynamic System Status
+        const statusItems = ["HYPER-BULLISH", "INJECTING GAINS", "DIAGNOSING JEETS", "ENCRYPTING ALPHA"];
+        let statusIndex = 0;
+        setInterval(() => {
+            const statusElement = document.getElementById('system-status');
+            if (statusElement) {
+                statusElement.innerText = statusItems[statusIndex % statusItems.length];
+                statusIndex++;
+            }
+        }, 2000);
+
+        // Heartbeat Engine
+        (function () {
+            const canvas = document.getElementById('vitals-monitor');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = canvas.parentElement.clientWidth - 32; // -32 for padding
+                canvas.height = 200;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            let x = 0;
+            let y = canvas.height / 2;
+
+            function draw() {
+                // Fade out effect
+                ctx.fillStyle = 'rgba(5, 5, 5, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = '#39FF14';
+                ctx.lineWidth = 3;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#39FF14';
+
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+
+                // Heartbeat logic
+                if (Math.random() > 0.98) {
+                    y = (canvas.height / 2) + (Math.random() > 0.5 ? -40 : 40); // Spike relative to center
+                } else {
+                    y = (canvas.height / 2); // Flatline
+                }
+
+                x += 4;
+                ctx.lineTo(x, y);
+                ctx.stroke();
+
+                if (x > canvas.width) {
+                    x = 0;
+                    ctx.moveTo(0, y);
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+    </script>
+    <script>
+        // Audio Feedback
+        const audio = new Audio('https://cdn.freesound.org/previews/341/341695_5858296-lq.mp3'); // Coin sound placeholder
+        document.querySelectorAll('a[href*="pump.fun"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                audio.volume = 0.5;
+                audio.play();
+            });
+        });
+    </script>
+    <script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
+
+        if (mobileBtn) mobileBtn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+</body>
+
+</html>
