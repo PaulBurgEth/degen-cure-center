@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+    <!-- QRS Complex Heartbeat Pattern: Flat -> P -> QRS -> T -> Flat -->
+    <!-- Starts at 0,75 (flat) and ends at 500,75 (flat) for loop -->
+    <path d="M0,75 L50,75 L60,70 L70,80 L80,75 L100,75 L110,65 L120,130 L130,10 L140,140 L150,75 L170,75 L180,60 L200,80 L220,75 L250,75 
+             M250,75 L300,75 L310,70 L320,80 L330,75 L350,75 L360,65 L370,130 L380,10 L390,140 L400,75 L420,75 L430,60 L450,80 L470,75 L500,75" 
+    stroke="#39FF14" stroke-width="2" fill="none" style="filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.9));" vector-effect="non-scaling-stroke"/>
+</svg>
