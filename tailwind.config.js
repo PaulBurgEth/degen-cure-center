@@ -28,6 +28,7 @@ module.exports = {
                 'float': 'float 6s ease-in-out infinite',
                 'glow': 'glow 2s ease-in-out infinite alternate',
                 'marquee': 'marquee 20s linear infinite',
+                'travelLine': 'travelLine 4s linear infinite',
             },
             keyframes: {
                 heartbeat: {
@@ -55,6 +56,12 @@ module.exports = {
                 marquee: {
                     '0%': { transform: 'translateX(0%)' },
                     '100%': { transform: 'translateX(-50%)' },
+                },
+                travelLine: {
+                    '0%': { left: '0%', opacity: '0' },
+                    '10%': { opacity: '1' },
+                    '90%': { opacity: '1' },
+                    '100%': { left: '100%', opacity: '0' },
                 }
             }
         },
