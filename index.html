@@ -4,36 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$VITACRYPT | 💊 THE CURE FOR JEETISM</title>
+    <title>Degen Cure Center | $DCC - The Ultimate Cure for Jeetism on Solana</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="logo-new.jpg">
+    <link rel="icon" href="dcc-logo.jpg">
     <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
 
     <!-- SEO & Meta -->
     <meta name="description"
-        content="$VITACRYPT: The first anti-rug protocol on Solana. Diagnosing degens, prescribing gains, and granting permanent immunity. Contract: 2LdvNx...pump">
-    <meta name="keywords" content="Solana, Memecoin, Anti-Rug, Crypto, $VITACRYPT, De-Fi, Trading">
-    <meta name="author" content="Dr. Maniac & The Saint">
+        content="Degen Cure Center - The only memecoin prescribed by actual degens. $DCC on Solana. Anti-rug protocol, 100% LP burnt, diamond hands prescribed. Stop jeetism, start operating.">
+    <meta name="keywords"
+        content="Degen Cure Center, DCC, $DCC, Solana memecoin, anti-rug, crypto, defi, pump.fun, memecoin, diamond hands, anti-jeet, degencurecenter, Dr. Maniac, The Saint, Solana tokens, LP burnt">
+    <meta name="author" content="Degen Cure Center">
+    <link rel="canonical" href="https://degencurecenter.com/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vitacrypt.xyz/">
-    <meta property="og:title" content="$VITACRYPT | 💊 THE CURE FOR JEETISM">
+    <meta property="og:url" content="https://degencurecenter.com/">
+    <meta property="og:site_name" content="Degen Cure Center">
+    <meta property="og:title" content="Degen Cure Center | $DCC - The Ultimate Cure for Jeetism">
     <meta property="og:description"
-        content="Encrypting Gains, Diagnosing Degens. The only token that prioritizes your financial health.">
-    <meta property="og:image" content="surgeon.png">
+        content="The only memecoin prescribed by actual degens. $DCC on Solana - Anti-rug protocol, 100% LP burnt. Stop jeetism, embrace diamond hands.">
+    <meta property="og:image" content="https://degencurecenter.com/assets/social-banner.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="$VITACRYPT | 💊 THE CURE FOR JEETISM">
-    <meta name="twitter:description"
-        content="Encrypting Gains, Diagnosing Degens. The only token that prioritizes your financial health.">
-    <meta name="twitter:image" content="surgeon.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://degencurecenter.com/">
+    <meta property="twitter:title" content="Degen Cure Center | $DCC - The Ultimate Cure for Jeetism">
+    <meta property="twitter:description"
+        content="The only memecoin prescribed by actual degens. $DCC on Solana - Anti-rug protocol, 100% LP burnt. Stop jeetism, embrace diamond hands.">
+    <meta property="twitter:image" content="https://degencurecenter.com/assets/social-banner.jpg">
+    <meta name="twitter:image:alt" content="Degen Cure Center - $DCC Token on Solana">
 
     <style>
         .animate-ecg {
@@ -145,6 +152,71 @@
             100% {
                 transform: skew(0deg);
             }
+        }
+
+        /* Biohazard Shake Animation for Terminal Card */
+        @keyframes biohazard-shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        /* Apply to the 'Rug Pull' terminal card */
+        .diagnosis-card.terminal-variant:hover {
+            animation: biohazard-shake 0.5s infinite !important;
+            border-color: #FF3131 !important;
+            box-shadow: 0 0 15px rgba(255, 49, 49, 0.5) !important;
+        }
+
+        /* Mobile Touch Targets (44x44px minimum) */
+        #mobile-menu-btn,
+        #close-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         /* Monitor Card Styling */
@@ -556,20 +628,19 @@
     <header
         class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 bg-black backdrop-blur-md border-b-2 border-tox-green"
         style="z-index: 9999 !important;">
-        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2 group cursor-pointer">
-                <img src="logo-new.jpg" alt="$VITACRYPT Logo"
+                <img src="dcc-logo.jpg" alt="$DCC Logo" loading="lazy"
                     class="w-[68px] h-[68px] md:w-[72px] md:h-[72px] rounded-full animate-heartbeat shadow-[0_0_15px_#39FF14]">
                 <span
-                    class="text-white font-display font-bold text-xl tracking-tighter group-hover:text-tox-green transition-colors">$VITACRYPT</span>
+                    class="text-white font-display font-bold text-xl tracking-tighter group-hover:text-tox-green transition-colors">$DCC</span>
             </div>
 
             <nav class="hidden md:flex items-center" style="gap: 30px;">
                 <a href="#triage"
                     class="text-sm font-bold text-white hover:text-tox-green transition-colors uppercase tracking-widest">Dr.
                     Degen Ai</a>
-                <a href="#vitals"
-                    class="text-sm font-bold text-white hover:text-tox-green transition-colors uppercase tracking-widest">VITALS</a>
+
                 <a href="#ward"
                     class="text-sm font-bold text-white hover:text-tox-green transition-colors uppercase tracking-widest">DIAGNOSIS</a>
                 <a href="#saint"
@@ -578,10 +649,7 @@
                 <a href="#roadmap"
                     class="text-sm font-bold text-white hover:text-tox-green transition-colors uppercase tracking-widest">STRATEGY</a>
             </nav>
-            <a href="#"
-                class="hidden md:block bg-white text-black px-6 py-2 font-black font-display uppercase hover:bg-tox-green hover:text-black transition-colors transform hover:-translate-y-1">
-                BUY $VITACRYPT
-            </a>
+
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex flex-col items-end">
                     <span class="text-[10px] text-gray-500 font-mono">SOL/USD</span>
@@ -589,13 +657,15 @@
                             class="animate-pulse">●</span></span>
                 </div>
 
-                <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
-                    class="bg-tox-green text-black font-black px-6 py-2 rounded-full hover:scale-105 transition-transform uppercase text-sm shadow-[0_0_20px_rgba(57,255,20,0.4)] flex items-center justify-center">
-                    APE IN 💊
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden text-tox-green text-3xl focus:outline-none">
-                    ☰
-                </button>
+                <div class="flex items-center gap-3 md:gap-4">
+                    <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
+                        class="bg-tox-green text-black font-black px-6 py-2 rounded-full hover:scale-105 transition-transform uppercase text-sm shadow-[0_0_20px_rgba(57,255,20,0.4)] flex items-center justify-center">
+                        APE IN 💊
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-tox-green text-3xl focus:outline-none">
+                        ☰
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -604,7 +674,6 @@
             class="fixed inset-0 bg-black/95 z-[9998] hidden flex-col items-center justify-center gap-8 transition-all duration-300">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-tox-green text-4xl">&times;</button>
             <a href="#triage" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">Dr. Degen Ai</a>
-            <a href="#vitals" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">VITALS</a>
             <a href="#ward" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">DIAGNOSIS</a>
             <a href="#saint" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">YOUR TALISMAN</a>
             <a href="#roadmap" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">STRATEGY</a>
@@ -720,6 +789,16 @@
             line-height: 1.1 !important;
             margin-top: 0 !important;
         }
+
+        /* Neon Purple Style for 'CURE' */
+        .neon-purple {
+            color: #D300FF !important;
+            /* Electric Violet */
+            text-shadow: 0 0 20px rgba(211, 0, 255, 0.7);
+            /* Strong Glow */
+            font-weight: 900;
+            /* Extra Bold */
+        }
     </style>
     <section class="relative min-h-screen pt-24 pb-12 flex items-start overflow-hidden bg-black">
         <div
@@ -738,8 +817,7 @@
                     <h1
                         class="font-display font-extrabold text-5xl md:text-7xl uppercase w-full leading-tight text-white">
                         <span class="block text-white mb-4">DEGEN</span>
-                        <span class="block text-gray-400 mb-4"
-                            style="-webkit-text-fill-color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.5);">CURE</span>
+                        <span class="block neon-purple mb-4">CURE</span>
                         <span class="block text-brand-accent" style="-webkit-text-fill-color: #39FF14;">CENTER</span>
                     </h1>
                 </div>
@@ -754,7 +832,7 @@
                     <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
                         class="group relative inline-flex items-center justify-center px-12 py-6 overflow-hidden rounded-full bg-tox-green text-black font-black uppercase tracking-tighter text-2xl hero-cta-button transition-transform duration-200">
                         <span class="relative z-10 flex items-center gap-2">
-                            INJECT $VITACRYPT <span class="text-3xl">💉</span>
+                            INJECT $DCC <span class="text-3xl">💉</span>
                         </span>
                         <div
                             class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -770,39 +848,22 @@
                             class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
                             <span>🚀</span> FOLLOW X
                         </a>
-                        <a href="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk"
-                            target="_blank"
-                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
-                            <span>📊</span> DEXSCREENER
-                        </a>
+
                     </div>
 
                     <!-- Contract Address & Disclaimer -->
                     <div class="w-full mt-6 space-y-4">
                         <div class="font-mono text-gray-500 text-xs uppercase tracking-widest pl-1">Contract Address
                             (Solana)</div>
-                        <div class="relative group cursor-pointer inline-flex max-w-full"
-                            onclick="copyToClipboard('2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump')">
-                            <!-- Replace with actual CA -->
+                        <div class="relative group inline-flex max-w-full">
                             <div
-                                class="bg-black/50 border border-white/20 rounded-lg p-4 flex items-center justify-between hover:border-tox-green transition-colors gap-4">
-                                <span class="font-mono text-tox-green text-sm sm:text-base break-all"
-                                    id="hero-ca">2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump</span>
-                                <div class="text-gray-400 group-hover:text-white transition-colors shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <!-- Tooltip -->
-                            <div id="copy-feedback"
-                                class="absolute top-0 right-0 -mt-8 bg-tox-green text-black text-xs font-bold px-2 py-1 rounded opacity-0 transition-opacity">
-                                COPIED!
+                                class="bg-black/50 border border-white/20 rounded-lg p-4 flex items-center justify-center hover:border-tox-green/50 transition-colors">
+                                <span class="font-mono text-gray-400 text-xs sm:text-sm md:text-base">
+                                    Coming Soon...
+                                </span>
                             </div>
                         </div>
+
 
                         <div class="flex items-center gap-2 text-red-500 font-mono text-xs sm:text-sm animate-pulse">
                             <span>⚠</span>
@@ -816,46 +877,12 @@
 
             <!-- Hero Image & Chart -->
             <div class="flex-1 w-full md:w-1/2 flex justify-end relative order-2 z-20 md:-ml-40 pointer-events-none">
-                <!-- DexScreener Widget -->
-                <div
-                    class="absolute -right-4 -bottom-10 z-30 w-72 md:w-80 border-2 border-brand-primary bg-black rounded-xl overflow-hidden shadow-[0_0_20px_rgba(57,255,20,0.4)] transform rotate-2 hover:rotate-0 transition-transform hidden md:block pointer-events-auto">
-                    <div class="bg-brand-primary text-black text-[10px] font-bold px-2 py-1 flex justify-between">
-                        <span>LIVE VITALS // SOLUSDT</span>
-                        <span class="animate-pulse">● REC</span>
-                    </div>
-                    <style>
-                        #dexscreener-embed {
-                            position: relative;
-                            width: 100%;
-                            padding-bottom: 125%;
-                        }
 
-                        @media(min-width:1400px) {
-                            #dexscreener-embed {
-                                padding-bottom: 65%;
-                            }
-                        }
-
-                        #dexscreener-embed iframe {
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                            left: 0;
-                            border: 0;
-                        }
-                    </style>
-                    <div id="dexscreener-embed"><iframe
-                            src="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk?embed=1&theme=dark"
-                            allow="clipboard-write"
-                            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-                    </div>
-                </div>
 
                 <div class="absolute inset-0 bg-gradient-to-l from-brand-dark via-transparent to-transparent z-10">
                 </div>
 
-                <img src="surgeon.png" alt="The Surgeon"
+                <img src="surgeon.png" alt="The Surgeon" loading="eager"
                     class="max-w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 filter drop-shadow-[0_0_50px_rgba(57,255,20,0.3)] animate-[pulse-slow_4s_infinite] pointer-events-none"
                     style="mask-image: linear-gradient(to right, transparent, black 10%); -webkit-mask-image: linear-gradient(to right, transparent, black 10%);">
             </div>
@@ -865,10 +892,11 @@
     </section>
 
     <!-- TRIAGE ROOM SECTION -->
-    <section id="triage" class="relative bg-[#0a0a0a] border-y border-red-600/50 pt-16 pb-32 overflow-hidden">
+    <section id="triage"
+        class="relative bg-[#0a0a0a] border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
-            <img src="triage-bg.png" alt="Triage Room Background" class="w-full h-full object-cover">
+            <img src="./triage-bg.png" alt="Triage Room Background" class="w-full h-full object-cover" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/80"></div>
         </div>
 
@@ -914,14 +942,14 @@
 
                 <!-- Call to Action Buttons -->
                 <div class="triage-actions"
-                    style="display: flex; gap: 12px; margin-top: 30px; margin-bottom: 60px; flex-wrap: nowrap;">
+                    style="display: flex; gap: 12px; margin-top: 30px; margin-bottom: 60px; flex-wrap: wrap;">
                     <a href="#"
-                        class="bg-tox-green hover:bg-tox-green/90 text-black font-black font-display text-sm py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(57,255,20,0.5)] transform hover:scale-[1.02] transition-all flex items-center justify-center gap-2 flex-1">
+                        class="bg-tox-green hover:bg-tox-green/90 text-black font-black font-display text-sm py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(57,255,20,0.5)] transform hover:scale-[1.02] transition-all flex items-center justify-center gap-2 w-full md:flex-1">
                         <span class="text-lg">🚑</span> ENTER TRIAGE <span
                             class="text-xs opacity-75 font-mono">(TG)</span>
                     </a>
                     <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
-                        class="border-2 border-tox-green bg-transparent text-tox-green hover:bg-tox-green hover:text-black font-bold font-mono text-sm py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 flex-1">
+                        class="border-2 border-tox-green bg-transparent text-tox-green hover:bg-tox-green hover:text-black font-bold font-mono text-sm py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 w-full md:flex-1">
                         <span class="text-lg">💊</span> BUY INSURANCE
                     </a>
                 </div>
@@ -950,84 +978,98 @@
                         <div class="text-gray-300">
                             <strong class="text-blue-400">📋 TRIAGE REPORT:</strong> $JEEP<br>
                             <div class="pl-4 mt-2 border-l-2 border-gray-700">
-                                <span class="block mb-1">🩺 <strong class="text-white">VITALS</strong></span>
-                                <span class="text-gray-400">💓 Pulse:</span> <span
-                                    class="text-red-500 font-bold animate-pulse">Flatline 💀</span> ($300 Vol)<br>
-                                <span class="text-gray-400">⚖️ Weight:</span> <span class="text-orange-400">Anorexic
-                                    🦴</span> ($12k MC)<br>
-                                <span class="text-gray-400">🩸 Pressure:</span> <span
-                                    class="text-red-500 font-bold">Critical 💣</span> (Liq < 2%) </div>
-                            </div>
-
-                            <div class="text-gray-300">
-                                <strong class="text-purple-400">🔬 DIAGNOSIS</strong><br>
-                                Patient has been abandoned by the family. Vital organs were harvested by the dev 3 hours
-                                ago.
-                            </div>
-
-                            <div class="text-gray-300">
-                                <strong class="text-tox-green">💊 PRESCRIPTION</strong><br>
-                                Pull the plug. There is nothing to save here. Move remaining dust into <strong
-                                    class="text-tox-green">$VITACRYPT</strong> before infection spreads.
-                            </div>
-
-                            <div class="pt-4 border-t border-gray-800 text-xs text-gray-500 italic">
-                                SIGNED, Dr. Degen, MD 🥼
+                                <span class="block mb-2">🩺 <strong class="text-white">VITALS</strong></span>
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex justify-between items-start gap-4">
+                                        <span class="text-gray-400">💓 Pulse:</span>
+                                        <span class="text-red-500 font-bold animate-pulse text-right">Flatline 💀 <span
+                                                class="text-gray-500 text-xs">($300 Vol)</span></span>
+                                    </div>
+                                    <div class="flex justify-between items-start gap-4">
+                                        <span class="text-gray-400">⚖️ Weight:</span>
+                                        <span class="text-orange-400 text-right">Anorexic 🦴 <span
+                                                class="text-gray-500 text-xs">($12k MC)</span></span>
+                                    </div>
+                                    <div class="flex justify-between items-start gap-4">
+                                        <span class="text-gray-400">🩸 Pressure:</span>
+                                        <span class="text-red-500 font-bold text-right">Critical 💣 <span
+                                                class="text-gray-500 text-xs">(Liq < 2%)</span></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Scanline Overlay -->
-                        <div
-                            class="absolute inset-0 bg-repeat bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg==')] opacity-[0.03] pointer-events-none">
+                        <div class="text-gray-300">
+                            <strong class="text-purple-400">🔬 DIAGNOSIS</strong><br>
+                            Patient has been abandoned by the family. Vital organs were harvested by the dev 3 hours
+                            ago.
+                        </div>
+
+                        <div class="text-gray-300">
+                            <strong class="text-tox-green">💊 PRESCRIPTION</strong><br>
+                            Pull the plug. There is nothing to save here. Move remaining dust into <strong
+                                class="text-tox-green">$DCC</strong> before infection spreads.
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-800 text-xs text-gray-500 italic">
+                            SIGNED, Dr. Degen, MD 🥼
                         </div>
                     </div>
 
-                    <!-- Decor Elements -->
+                    <!-- Scanline Overlay -->
                     <div
-                        class="absolute -z-10 -top-10 -right-10 w-32 h-32 bg-red-600 rounded-full blur-[80px] opacity-20">
-                    </div>
-                    <div
-                        class="absolute -z-10 -bottom-10 -left-10 w-32 h-32 bg-blue-600 rounded-full blur-[80px] opacity-10">
+                        class="absolute inset-0 bg-repeat bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg==')] opacity-[0.03] pointer-events-none">
                     </div>
                 </div>
 
+                <!-- Decor Elements -->
+                <div class="absolute -z-10 -top-10 -right-10 w-32 h-32 bg-red-600 rounded-full blur-[80px] opacity-20">
+                </div>
+                <div
+                    class="absolute -z-10 -bottom-10 -left-10 w-32 h-32 bg-blue-600 rounded-full blur-[80px] opacity-10">
+                </div>
             </div>
 
-            <!-- Custom Styles for Animations -->
-            <style>
-                @keyframes heartbeat {
+        </div>
 
-                    0%,
-                    100% {
-                        transform: scale(1);
-                    }
+        <!-- Custom Styles for Animations -->
+        <style>
+            @keyframes heartbeat {
 
-                    50% {
-                        transform: scale(1.03);
-                    }
+                0%,
+                100% {
+                    transform: scale(1);
                 }
 
-                .animate-heartbeat {
-                    animation: heartbeat 2s ease-in-out infinite;
+                50% {
+                    transform: scale(1.03);
                 }
+            }
 
-                .animate-pulse-fast {
-                    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-            </style>
+            .animate-heartbeat {
+                animation: heartbeat 2s ease-in-out infinite;
+            }
+
+            .animate-pulse-fast {
+                animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+        </style>
     </section>
 
     <!-- Hype Ticker (Marquee) -->
     <div class="w-full bg-black border-y border-tox-green/30 overflow-hidden py-2 relative z-20">
         <div class="whitespace-nowrap animate-marquee flex gap-8">
             <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
-                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+                NO JEETS ALLOWED +++ DCC IS THE <span class="text-cyber-purple">CURE</span> +++ ENCRYPTED GAINS ONLY +++
+                DIAGNOSING DEGENS 24/7
             </span>
             <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
-                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+                NO JEETS ALLOWED +++ DCC IS THE <span class="text-cyber-purple">CURE</span> +++ ENCRYPTED GAINS ONLY +++
+                DIAGNOSING DEGENS 24/7
             </span>
             <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
-                NO JEETS ALLOWED +++ VITACRYPT IS THE CURE +++ ENCRYPTED GAINS ONLY +++ DIAGNOSING DEGENS 24/7
+                NO JEETS ALLOWED +++ DCC IS THE <span class="text-cyber-purple">CURE</span> +++ ENCRYPTED GAINS ONLY +++
+                DIAGNOSING DEGENS 24/7
             </span>
         </div>
     </div>
@@ -1037,15 +1079,15 @@
         <div class="w-full max-w-4xl mx-auto">
             <div class="vitals-monitor">
                 <!-- HUD Text -->
-                <div class="monitor-text top-left">PATIENT: $VITACRYPT</div>
+                <div class="monitor-text top-left">PATIENT: $DCC</div>
                 <div class="monitor-text top-right">STATUS: HYPER-BULLISH</div>
                 <div class="monitor-text bottom-left">HR: <span class="text-3xl bpm-text">180</span> BPM</div>
                 <div class="monitor-text bottom-right">O2: 100%</div>
 
                 <!-- ECG Scroller Container -->
                 <div class="ecg-scroller">
-                    <img src="assets/heartbeat-line.svg" class="ecg-image" alt="">
-                    <img src="assets/heartbeat-line.svg" class="ecg-image" alt="">
+                    <img src="assets/heartbeat-line.svg" class="ecg-image" alt="" loading="lazy">
+                    <img src="assets/heartbeat-line.svg" class="ecg-image" alt="" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1073,7 +1115,7 @@
                     <span
                         class="px-3 py-1 border border-gray-700 rounded text-xs text-gray-400 font-mono">#EMERGENCY_OP</span>
                     <span
-                        class="px-3 py-1 border border-gray-700 rounded text-xs text-gray-400 font-mono">#VITACRYPT_PROTOCOLS</span>
+                        class="px-3 py-1 border border-gray-700 rounded text-xs text-gray-400 font-mono">#DCC_PROTOCOLS</span>
                 </div>
             </div>
 
@@ -1141,13 +1183,15 @@
                             style="width: 100%; height: auto; aspect-ratio: 1/1;">
                             <!-- Slot 1: Before Image + Label -->
                             <div slot="first" class="w-full h-full relative">
-                                <img src="sad.jpg" alt="Before: Sad Wojak" class="w-full h-full object-cover" />
+                                <img src="sad.jpg" alt="Before: Sad Wojak" class="w-full h-full object-cover"
+                                    loading="lazy" />
                                 <div class="label-left">PATIENT ZERO [REKT]</div>
                             </div>
 
                             <!-- Slot 2: After Image + Label -->
                             <div slot="second" class="w-full h-full relative">
-                                <img src="maniac.png" alt="After: Doctor Maniac" class="w-full h-full object-cover" />
+                                <img src="maniac.png" alt="After: Doctor Maniac" class="w-full h-full object-cover"
+                                    loading="lazy" />
                                 <div class="label-right">POST-OP [CHAD]</div>
                             </div>
 
@@ -1205,7 +1249,7 @@
             <div class="relative flex justify-center md:justify-start md:-ml-24">
                 <div class="absolute inset-0 bg-cyber-purple blur-[80px] opacity-40 animate-pulse"></div>
                 <!-- Increased size to max-w-2xl and aligned left on desktop with increased negative margin -->
-                <img src="saint.png" alt="Saint Mascot"
+                <img src="saint.png" alt="Saint Mascot" loading="lazy"
                     class="relative z-10 w-full max-w-2xl drop-shadow-[0_0_30px_#BC13FE] animate-float-slow">
             </div>
 
@@ -1223,12 +1267,13 @@
                     The only doctor who treats "Rug-Pull PTSD". Our liquidity is blessed, burnt, and monitored 24/7.
                     Jeet spirits are exorcised on entry.
                     <br><br>
-                    Hold $VITACRYPT for permanent immunity to rugs, jeets, and dumps. The Saint watches. The Surgeon
+                    Hold $DCC for permanent immunity to rugs, jeets, and dumps. The Saint watches. The Surgeon
                     oversees. Dr. Maniac operates. No evil survives.
                 </p>
 
                 <!-- Rug-Pull PTSD Diagnosis Card -->
-                <div class="mb-8 border border-red-600 rounded-lg p-6 bg-black/50 relative overflow-hidden max-w-lg">
+                <div
+                    class="diagnosis-card terminal-variant mb-8 border border-red-600 rounded-lg p-6 bg-black/50 relative overflow-hidden max-w-lg">
                     <!-- Terminal Stamp -->
                     <div
                         class="absolute -top-2 -right-2 text-white/5 font-black text-6xl -rotate-12 pointer-events-none select-none font-display">
@@ -1299,8 +1344,8 @@
                         <div class="flex items-start">
                             <span class="text-3xl leading-none"
                                 style="margin-right: 15px; min-width: 24px; display: inline-block;">💉</span>
-                            <p class="italic leading-snug">"Get your $VITACRYPT dose NOW! This chart is healthier than
-                                your grandma after a green juice cleanse... #VITACRYPT"</p>
+                            <p class="italic leading-snug">"Get your $DCC dose NOW! This chart is healthier than
+                                your grandma after a green juice cleanse... #DCC"</p>
                         </div>
                     </div>
                 </div>
@@ -1376,7 +1421,7 @@
             </p>
             <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
                 class="inline-block bg-black text-tox-green text-2xl font-black py-5 px-12 rounded-full hover:scale-105 transition-transform shadow-2xl">
-                INJECT $VITACRYPT →
+                INJECT $DCC →
             </a>
         </div>
     </section>
@@ -1387,11 +1432,11 @@
             <!-- The Saint Badge -->
             <div class="relative group cursor-pointer mb-8">
                 <div class="absolute inset-0 bg-brand-accent/30 rounded-full blur-xl animate-pulse"></div>
-                <img src="logo-new.jpg" alt="The Saint"
+                <img src="dcc-logo.jpg" alt="The Saint" loading="lazy"
                     class="w-64 h-64 rounded-full border-4 border-brand-accent shadow-[0_0_60px_rgba(188,19,254,0.4)] animate-float relative z-10">
                 <div
                     class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-brand-accent px-4 py-1 rounded-full text-black font-bold text-xs uppercase tracking-widest whitespace-nowrap border-2 border-white z-20">
-                    PROTECTED BY $VITACRYPT
+                    PROTECTED BY $DCC
                 </div>
             </div>
 
@@ -1410,10 +1455,7 @@
                     class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
                     TWITTER / X
                 </a>
-                <a href="https://dexscreener.com/solana/dzef6xterz85aqyomvhpj9xkw3gxirejit1z9jmbrfyk" target="_blank"
-                    class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
-                    DEXSCREENER
-                </a>
+
                 <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump" target="_blank"
                     class="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-brand-primary/20 hover:border-brand-primary text-gray-300 hover:text-brand-primary font-bold transition-all">
                     BUY ON PUMP.FUN
@@ -1423,7 +1465,7 @@
 
 
             <p class="text-gray-600 text-[10px] uppercase font-mono tracking-widest max-w-2xl">
-                DISCLAIMER: $VITACRYPT IS A SOLANA MEMECOIN FOR ENTERTAINMENT PURPOSES ONLY. IT HAS NO INTRINSIC VALUE.
+                DISCLAIMER: $DCC IS A SOLANA MEMECOIN FOR ENTERTAINMENT PURPOSES ONLY. IT HAS NO INTRINSIC VALUE.
                 CONSULT YOUR DOCTOR IF ERECTION LASTS MORE THAN 4 HOURS. NOT FINANCIAL ADVICE. DYOR.
             </p>
         </div>
@@ -1431,15 +1473,15 @@
 
     <!-- Sticky Mobile Footer -->
     <div
-        class="fixed bottom-0 left-0 w-full z-50 p-4 md:hidden bg-gradient-to-t from-black via-black to-transparent pt-8">
+        class="fixed bottom-0 left-0 w-full z-50 p-2 md:hidden bg-gradient-to-t from-black via-black to-transparent pt-6">
         <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
-            class="flex items-center justify-center w-full bg-tox-green text-black font-black font-syne text-xl py-4 rounded-xl shadow-[0_0_20px_#39FF14] animate-pulse">
+            class="flex items-center justify-center w-full bg-tox-green text-black font-black font-syne text-lg py-3 rounded-xl shadow-[0_0_20px_#39FF14] animate-pulse">
             INJECT NOW 💊
         </a>
     </div>
 
     <!-- Meme Popups Container -->
-    <div id="popups" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+    <div id="popups" class="fixed top-4 md:bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
     <script>
         // Cursor Logic (Removed - replaced with CSS)
@@ -1476,7 +1518,7 @@
         const patients = [
             "Patient #420 just injected 10 SOL",
             "Patient #6942 cured Paper Hands",
-            "Dr. Chad prescribed 1000 $VITA",
+            "Dr. Chad prescribed 1000 $DCC",
             "Emergency: FOMO levels Critical!",
             "Patient #007 discharged with 100x gains",
             "New admission: Vitalik Buterin?"
