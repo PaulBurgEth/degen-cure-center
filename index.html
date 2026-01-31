@@ -257,7 +257,7 @@
 
         /* 1. The Surgeon's Log (Top Box) */
         .diagnosis-log-box {
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
             border: 1px solid #39FF14;
             font-family: 'Courier New', monospace;
             padding: 20px;
@@ -270,7 +270,7 @@
             position: absolute;
             top: -10px;
             left: 20px;
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
             padding: 0 10px;
             color: #39FF14;
             font-size: 0.8rem;
@@ -319,7 +319,7 @@
             border: 2px solid #333;
             position: relative;
             padding: 5px;
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
         }
 
         /* Add "Targeting Corners" */
@@ -680,7 +680,7 @@
 
     <!-- Navbar -->
     <header
-        class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 bg-black backdrop-blur-md border-b-2 border-tox-green"
+        class="fixed top-0 left-0 w-full z-[9999] transition-all duration-300 bg-black/90 backdrop-blur-md border-b-2 border-tox-green"
         style="z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2 group cursor-pointer">
@@ -725,7 +725,7 @@
 
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu"
-            class="fixed inset-0 bg-black/95 z-[9998] hidden flex-col items-center justify-center gap-8 transition-all duration-300">
+            class="fixed inset-0 bg-black/90 z-[9998] hidden flex-col items-center justify-center gap-8 transition-all duration-300">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-tox-green text-4xl">&times;</button>
             <a href="#triage" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">Dr. Degen Ai</a>
             <a href="#ward" class="mobile-link text-2xl font-mono text-white hover:text-tox-green">DIAGNOSIS</a>
@@ -788,7 +788,7 @@
             display: flex;
             gap: 6px;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.8) !important;
+            background-color: rgba(0, 0, 0, 0.9) !important;
             /* Ensure readability */
             border: 1px solid #39FF14 !important;
         }
@@ -854,11 +854,11 @@
             /* Extra Bold */
         }
     </style>
-    <section class="relative min-h-screen pt-24 pb-12 flex items-start overflow-hidden bg-black">
+    <section class="relative min-h-screen pt-24 pb-12 flex items-start overflow-hidden bg-black/90">
         <div
             class="w-full h-full flex flex-col md:flex-row items-center justify-between overflow-hidden relative z-10 pt-10">
 
-            <div class="flex-1 w-full md:w-1/2 p-5 pr-10 pl-10 md:pl-20 !bg-black z-10 space-y-8 order-1 relative">
+            <div class="flex-1 w-full md:w-1/2 p-5 pr-10 pl-10 md:pl-20 !bg-black/90 z-10 space-y-8 order-1 relative">
                 <!-- System Status -->
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 border border-brand-primary/50 bg-brand-primary/10 rounded font-mono text-brand-primary text-sm animate-pulse">
@@ -895,11 +895,11 @@
 
                     <div class="flex flex-wrap gap-4">
                         <a href="https://t.me/VitaCryptDegens" target="_blank"
-                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
+                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black/90 hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
                             <span>🩺</span> JOIN CLINIC
                         </a>
                         <a href="https://x.com/vita_crypt" target="_blank"
-                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
+                            class="px-6 py-2 rounded-full border border-brand-primary/30 bg-black/90 hover:bg-brand-primary/10 text-brand-primary font-bold transition-all flex items-center gap-2">
                             <span>🚀</span> FOLLOW X
                         </a>
 
@@ -911,7 +911,7 @@
                             (Solana)</div>
                         <div class="relative group inline-flex max-w-full">
                             <div
-                                class="bg-black/50 border border-white/20 rounded-lg p-4 flex items-center justify-center hover:border-tox-green/50 transition-colors">
+                                class="bg-black/90 border border-white/20 rounded-lg p-4 flex items-center justify-center hover:border-tox-green/50 transition-colors">
                                 <span class="font-mono text-gray-400 text-xs sm:text-sm md:text-base">
                                     Coming Soon...
                                 </span>
@@ -947,9 +947,9 @@
 
     <!-- TRIAGE ROOM SECTION -->
     <section id="triage"
-        class="triage-section-container relative bg-[#0a0a0a] border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
+        class="triage-section-container relative bg-[#0a0a0a]/90 border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
         <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0 opacity-100 pointer-events-none">
+        <div class="absolute inset-0 z-0 opacity-90 pointer-events-none">
             <img src="./triage-bg.png" alt="Triage Room Background" class="w-full h-full object-cover" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/80 to-[#0a0a0a]/70"></div>
         </div>
@@ -1013,9 +1013,9 @@
 
             <!-- Right Column: The Proof (Live Terminal) -->
             <div class="relative">
-                <div class="bg-[#1c1c1c] border border-gray-700 rounded-xl overflow-hidden shadow-2xl relative">
+                <div class="bg-[#1c1c1c]/90 border border-gray-700 rounded-xl overflow-hidden shadow-2xl relative">
                     <!-- Terminal Header -->
-                    <div class="bg-[#2a2a2a] px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                    <div class="bg-[#222]/90 px-4 py-2 flex items-center justify-between border-b border-gray-700">
                         <div class="flex items-center gap-3">
                             <div
                                 class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">
@@ -1029,7 +1029,7 @@
                     </div>
 
                     <!-- Terminal Content -->
-                    <div class="p-6 font-mono text-sm leading-relaxed space-y-4 bg-black/90 min-h-[300px]">
+                    <div class="p-6 font-mono text-sm leading-relaxed space-y-4 bg-[#1a1a1a]/90 min-h-[300px]">
                         <div class="text-gray-300">
                             <strong class="text-blue-400">📋 TRIAGE REPORT:</strong> $JEEP<br>
                             <div class="pl-4 mt-2 border-l-2 border-gray-700">
@@ -1112,7 +1112,7 @@
     </section>
 
     <!-- Hype Ticker (Marquee) -->
-    <div class="w-full bg-black border-y border-tox-green/30 overflow-hidden py-2 relative z-20">
+    <div class="w-full bg-black/90 border-y border-tox-green/30 overflow-hidden py-2 relative z-20">
         <div class="whitespace-nowrap animate-marquee flex gap-8">
             <span class="text-tox-green font-mono font-bold mx-4 text-sm tracking-widest">
                 NO JEETS ALLOWED +++ DCC IS THE <span class="text-cyber-purple">CURE</span> +++ ENCRYPTED GAINS ONLY +++
@@ -1130,7 +1130,7 @@
     </div>
 
     <!-- Live Vitals Monitor -->
-    <section id="vitals" class="py-12 bg-black px-6">
+    <section id="vitals" class="py-12 bg-black/90 px-6">
         <div class="w-full max-w-4xl mx-auto">
             <div class="vitals-monitor">
                 <!-- HUD Text -->
@@ -1149,7 +1149,7 @@
     </section>
 
     <!-- Section 1: THE DIAGNOSIS -->
-    <section id="ward" class="py-24 border-t border-brand-primary/20 relative bg-black">
+    <section id="ward" class="py-24 border-t border-brand-primary/20 relative bg-black/90">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">THE <span
@@ -1295,7 +1295,7 @@
 
     <!-- Section 3: STRATEGIC PLAYBOOK -->
     <!-- Section: THE SAINT (Immunity Protocol) -->
-    <section id="saint" class="py-24 relative overflow-hidden bg-black border-y border-cyber-purple/30">
+    <section id="saint" class="py-24 relative overflow-hidden bg-black/90 border-y border-cyber-purple/30">
         <div
             class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(188,19,254,0.15),_transparent_70%)] pointer-events-none">
         </div>
@@ -1371,7 +1371,7 @@
     </section>
 
     <!-- Section 3: STRATEGIC PLAYBOOK -->
-    <section id="roadmap" class="py-24 relative overflow-hidden bg-black">
+    <section id="roadmap" class="py-24 relative overflow-hidden bg-black/90">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <h2 class="text-4xl md:text-6xl font-black text-white mb-16 font-syne text-center">STRATEGIC <span
                     class="text-tox-green">PLAYBOOK</span> ///</h2>
@@ -1380,7 +1380,7 @@
 
                 <!-- PHASE 1 CARD -->
                 <div
-                    class="bg-[#0a0a0a] border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
+                    class="bg-[#0a0a0a]/90 border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
                     <h3 class="text-3xl font-black font-display mb-2 uppercase text-tox-green">PHASE 1: TRIAGE</h3>
                     <p class="text-gray-400 font-mono text-sm mb-4 tracking-tight">INITIAL PUMP // SHILL SHOCK OPERATION
                     </p>
@@ -1407,7 +1407,7 @@
 
                 <!-- PHASE 2 CARD -->
                 <div
-                    class="bg-[#0a0a0a] border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
+                    class="bg-[#0a0a0a]/90 border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
                     <h3 class="text-3xl font-black font-display mb-2 uppercase text-cyber-purple">PHASE 2: SURGERY</h3>
                     <p class="text-gray-400 font-mono text-sm mb-4 tracking-tight">MARKETING PUSH // PRECISION CUTS</p>
 
@@ -1432,7 +1432,7 @@
 
                 <!-- PHASE 3 CARD -->
                 <div
-                    class="bg-[#0a0a0a] border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
+                    class="bg-[#0a0a0a]/90 border border-[#222] rounded-2xl p-6 flex flex-col h-full relative group hover:border-[#333] transition-colors">
                     <h3 class="text-3xl font-black font-display mb-2 uppercase text-white">PHASE 3: DISCHARGE</h3>
                     <p class="text-gray-400 font-mono text-sm mb-4 tracking-tight">MOON MISSION // FULL RECOVERY</p>
 
@@ -1475,14 +1475,14 @@
                 Don't be a paper hand patient. Ape now.
             </p>
             <a href="https://pump.fun/coin/2LdvNx2xkhQMkLYVYKXp6MoFFHzb9oNuL4pNgrShpump"
-                class="inline-block bg-black text-tox-green text-2xl font-black py-5 px-12 rounded-full hover:scale-105 transition-transform shadow-2xl">
+                class="inline-block bg-black/90 text-tox-green text-2xl font-black py-5 px-12 rounded-full hover:scale-105 transition-transform shadow-2xl">
                 INJECT $DCC →
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-black relative overflow-hidden">
+    <footer class="py-20 bg-black/90 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center relative z-10">
             <!-- The Saint Badge -->
             <div class="relative group cursor-pointer mb-8">
