@@ -478,6 +478,60 @@
             right: 15px;
         }
 
+        /* Triage Section - Restore Boxed Design */
+        /* 1. Access Protocol Box */
+        .access-protocol-box {
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            /* Visible Border */
+            background: rgba(0, 0, 0, 0.4) !important;
+            /* Semi-transparent dark background */
+            padding: 20px !important;
+            border-radius: 8px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            /* Pushes buttons down */
+            display: block !important;
+            /* Force it to show */
+        }
+
+        /* Style the Header inside the box */
+        .protocol-header {
+            color: #FFD700;
+            /* Yellow Warning Color */
+            font-weight: bold;
+            font-family: monospace;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 2. Typography - Triage Subheadline */
+        .triage-subheadline {
+            color: #FF3131;
+            /* Bright Red */
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            /* Strong shadow to pop against background */
+        }
+
+        /* 3. Fix Button Overlap */
+        /* Add padding to the bottom of the entire section so buttons don't hit the footer */
+        .triage-section-container {
+            padding-bottom: 100px !important;
+            /* Huge breathing room at the bottom */
+        }
+
+        /* Ensure buttons wrap correctly */
+        .triage-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
         /* MOBILE FIX: Mobile Safe Mode */
         @media (max-width: 768px) {
 
@@ -893,7 +947,7 @@
 
     <!-- TRIAGE ROOM SECTION -->
     <section id="triage"
-        class="relative bg-[#0a0a0a] border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
+        class="triage-section-container relative bg-[#0a0a0a] border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 opacity-100 pointer-events-none">
             <img src="./triage-bg.png" alt="Triage Room Background" class="w-full h-full object-cover" loading="lazy">
@@ -916,7 +970,7 @@
                     STOP GUESSING. START OPERATING.
                 </h1>
 
-                <h2 class="text-2xl font-bold text-red-500 mb-6" style="font-size: 1.5rem;">
+                <h2 class="triage-subheadline text-2xl font-bold" style="font-size: 1.5rem;">
                     IS YOUR PORTFOLIO ON LIFE SUPPORT?
                 </h2>
 
@@ -926,8 +980,10 @@
                 </p>
 
                 <!-- HUD-Style Protocol Info -->
-                <div class="access-protocol-box"
-                    style="border: none; background: transparent; padding: 0; margin-top: 20px;">
+                <div class="access-protocol-box">
+                    <div class="protocol-header">
+                        <span>⚠️ ACCESS PROTOCOL</span>
+                    </div>
                     <div class="protocol-line"
                         style="font-family: 'Courier New', monospace; font-size: 0.9rem; color: #39FF14; display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                         <span style="color: #39FF14;">●</span>
