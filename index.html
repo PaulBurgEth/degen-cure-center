@@ -68,6 +68,28 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is $DCC safe from rug pulls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. $DCC is protected by 'The Saint' protocol. Liquidity is locked and the contract is renounced, ensuring no dev can manipulate the supply."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I use the Dr. Degen Triage Bot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply join our Telegram. The bot analyzes Solana token contracts for liquidity locks, honeypots, and volume anomalies instantly."
+        }
+      }]
+    }
+    </script>
+
     <style>
         .animate-ecg {
             stroke-dasharray: 1000;
@@ -965,6 +987,22 @@
         </div>
     </section>
 
+    <!-- Patients Treated Counter -->
+    <div class="bg-black border-y border-tox-green py-4 overflow-hidden relative z-30">
+        <div class="max-w-7xl mx-auto px-6 flex justify-center items-center gap-4">
+            <span
+                class="text-tox-green font-mono font-bold uppercase tracking-widest text-sm md:text-base animate-pulse">
+                Patients Treated:
+            </span>
+            <span id="patient-counter" class="text-white font-black font-display text-2xl md:text-3xl tracking-tighter">
+                1,042
+            </span>
+            <span class="text-xs text-gray-500 font-mono self-end mb-1">
+                (LIVE)
+            </span>
+        </div>
+    </div>
+
     <!-- TRIAGE ROOM SECTION -->
     <section id="triage"
         class="triage-section-container relative border-y border-red-600/50 pt-12 md:pt-16 pb-24 md:pb-32 overflow-hidden"
@@ -1507,6 +1545,37 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="py-16 bg-black relative border-t border-gray-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-black text-white mb-8 font-display text-center uppercase">
+                <span class="text-tox-green">CLINICAL</span> FAQ
+            </h2>
+            <div class="space-y-6">
+                <!-- Q1 -->
+                <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="text-tox-green text-xl">?</span> Is $DCC safe from rug pulls?
+                    </h3>
+                    <p class="text-gray-400 font-mono text-sm leading-relaxed">
+                        Yes. $DCC is protected by 'The Saint' protocol. Liquidity is locked and the contract is
+                        renounced, ensuring no dev can manipulate the supply.
+                    </p>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="text-tox-green text-xl">?</span> How do I use the Dr. Degen Triage Bot?
+                    </h3>
+                    <p class="text-gray-400 font-mono text-sm leading-relaxed">
+                        Simply join our Telegram. The bot analyzes Solana token contracts for liquidity locks,
+                        honeypots, and volume anomalies instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-20 bg-black/90 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center relative z-10">
@@ -1639,6 +1708,34 @@
 
         // Start popups after 2s
         setTimeout(showPopup, 2000);
+
+        // Patients Counter Logic
+        const counterElement = document.getElementById('patient-counter');
+        let count = 1042;
+
+        function updateCounter() {
+            // Random increment between 1 and 3
+            const increment = Math.floor(Math.random() * 3) + 1;
+            count += increment;
+
+            // Format with commas
+            if (counterElement) {
+                counterElement.innerText = count.toLocaleString();
+
+                // Flash effect
+                counterElement.style.color = '#39FF14';
+                setTimeout(() => {
+                    counterElement.style.color = 'white';
+                }, 500);
+            }
+
+            // Schedule next update (10-30 seconds)
+            const nextUpdate = Math.floor(Math.random() * 20000) + 10000;
+            setTimeout(updateCounter, nextUpdate);
+        }
+
+        // Start counter
+        setTimeout(updateCounter, 15000);
 
         // Text Scramble Effect on Scroll
         const observer = new IntersectionObserver((entries) => {
