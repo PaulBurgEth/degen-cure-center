@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-mono">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$DCC Verification Portal</title>
+    <!-- Reuse main styles -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/solana-web3.js/1.91.0/solana-web3.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap');
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0)
+            }
+
+            20% {
+                transform: translate(-2px, 2px)
+            }
+
+            40% {
+                transform: translate(-2px, -2px)
+            }
+
+            60% {
+                transform: translate(2px, 2px)
+            }
+
+            80% {
+                transform: translate(2px, -2px)
+            }
+
+            100% {
+                transform: translate(0)
+            }
+        }
+
+        .heartbeat {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .terminal-box {
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-[url('../assets/triage-bg.png')] bg-cover bg-center">
+
+    <div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-0"></div>
+
+    <div class="relative z-10 w-full max-w-md p-6">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <img src="../dcc-logo.jpg"
+                class="w-24 h-24 mx-auto rounded-full border-4 border-[#39FF14] shadow-[0_0_20px_#39FF14] mb-4">
+            <h1 class="text-3xl font-bold text-[#39FF14] mb-2 glitch-text">ACCESS CONTROL</h1>
+            <p class="text-gray-400 text-sm">SECURE TALISMAN VERIFICATION</p>
+        </div>
+
+        <!-- Card -->
+        <div class="terminal-box p-8 rounded-lg text-center" id="main-card">
+            <div id="status-display" class="mb-6">
+                <p class="text-white text-lg mb-2">IDENTITY VERIFICATION REQUIRED</p>
+                <p class="text-xs text-gray-500 font-mono">TG_ID: <span id="tg-id-display"
+                        class="text-[#39FF14]">DETECTING...</span></p>
+            </div>
+
+            <div id="action-area">
+                <button onclick="connectWallet()"
+                    class="heartbeat w-full bg-[#39FF14] text-black font-black py-4 px-6 rounded hover:bg-[#32d911] transition-colors uppercase tracking-widest text-lg shadow-[0_0_15px_#39FF14]">
+                    Connect Wallet
+                </button>
+            </div>
+
+            <div id="loading" class="hidden mt-4">
+                <div class="w-full bg-gray-900 rounded-full h-2.5 mb-2">
+                    <div class="bg-[#39FF14] h-2.5 rounded-full animate-[width_2s_ease-in-out_infinite]"
+                        style="width: 45%"></div>
+                </div>
+                <p class="text-[#39FF14] text-xs blink">SCANNING ASSETS...</p>
+            </div>
+
+            <div id="error-msg"
+                class="hidden mt-4 p-3 bg-red-900/50 border border-red-500 rounded text-red-200 text-sm"></div>
+
+            <div id="success-msg"
+                class="hidden mt-4 p-3 bg-green-900/50 border border-[#39FF14] rounded text-[#39FF14] text-sm">
+                <p class="font-bold text-lg">ACCESS GRANTED</p>
+                <p>Talisman Equipped. Check Telegram.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURATION
+        const DCC_CA = 'REPLACE_WITH_DCC_CA'; // User needs to update this
+        const MIN_USD_VALUE = 20;
+
+        // Utils
+        const getParams = () => new URLSearchParams(window.location.search);
+
+        // Init
+        window.onload = () => {
+            const params = getParams();
+            const tgId = params.get('tg_id');
+            const display = document.getElementById('tg-id-display');
+
+            if (tgId) {
+                display.innerText = tgId;
+            } else {
+                display.innerText = 'NOT FOUND';
+                display.classList.remove('text-[#39FF14]');
+                display.classList.add('text-red-500');
+                showError('Missing Telegram ID. Please launch from the Bot.');
+            }
+        };
+
+        function showError(msg) {
+            const el = document.getElementById('error-msg');
+            el.innerText = msg;
+            el.classList.remove('hidden');
+            document.getElementById('loading').classList.add('hidden');
+        }
+
+        function showSuccess() {
+            document.getElementById('action-area').classList.add('hidden');
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('success-msg').classList.remove('hidden');
+            document.getElementById('status-display').classList.add('opacity-50');
+        }
+
+        async function connectWallet() {
+            const params = getParams();
+            const tgId = params.get('tg_id');
+
+            if (!tgId) {
+                showError("Cannot proceed without TG_ID.");
+                return;
+            }
+
+            if (DCC_CA === 'REPLACE_WITH_DCC_CA') {
+                showError("System Error: Contract Address not configured.");
+                return;
+            }
+
+            try {
+                // 1. Connect Phantom/Solana
+                const { solana } = window;
+                if (!solana || !solana.isPhantom) {
+                    window.open('https://phantom.app/', '_blank');
+                    showError("Phantom Wallet not found. Please install it.");
+                    return;
+                }
+
+                const response = await solana.connect();
+                const publicKey = response.publicKey.toString();
+
+                // UI Update
+                document.getElementById('action-area').classList.add('hidden');
+                document.getElementById('loading').classList.remove('hidden');
+
+                // 2. Fetch Balance and Price
+                await verifyAssets(publicKey, tgId);
+
+            } catch (err) {
+                console.error(err);
+                showError("Wallet connection failed: " + err.message);
+                document.getElementById('action-area').classList.remove('hidden');
+            }
+        }
+
+        async function verifyAssets(walletAddress, tgId) {
+            try {
+                // RPC Connection
+                const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+                const tokenMint = new solanaWeb3.PublicKey(DCC_CA);
+                const wallet = new solanaWeb3.PublicKey(walletAddress);
+
+                // Fetch Token Accounts
+                const tokenAccounts = await connection.getParsedTokenAccountsByOwner(wallet, {
+                    mint: tokenMint
+                });
+
+                let balance = 0;
+                if (tokenAccounts.value.length > 0) {
+                    balance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+                }
+
+                // Fetch Price
+                const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${DCC_CA}`);
+                const priceData = await priceRes.json();
+
+                if (!priceData.pairs || priceData.pairs.length === 0) {
+                    throw new Error("Could not fetch token price.");
+                }
+
+                const priceUsd = parseFloat(priceData.pairs[0].priceUsd);
+                const totalValue = balance * priceUsd;
+
+                console.log(`Balance: ${balance}, Price: ${priceUsd}, Value: ${totalValue}`);
+
+                if (totalValue < MIN_USD_VALUE) {
+                    showError(`Insufficient Funds. Required: $${MIN_USD_VALUE}. Found: $${totalValue.toFixed(2)}.`);
+                    // document.getElementById('action-area').classList.remove('hidden'); // allow retry
+                    return;
+                }
+
+                // 3. Success - Trigger Bot
+                await notifyBot(tgId);
+
+            } catch (err) {
+                console.error(err);
+                showError("Verification Error: " + err.message);
+                document.getElementById('action-area').classList.remove('hidden');
+            }
+        }
+
+        async function notifyBot(tgId) {
+            try {
+                const res = await fetch('/api/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tg_id: tgId })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.error || 'Bot notification failed');
+                }
+
+                showSuccess();
+
+            } catch (err) {
+                console.error(err);
+                showError("Server Error: " + err.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
