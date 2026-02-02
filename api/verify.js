@@ -26,13 +26,16 @@ export default async function handler(req, res) {
                 'Content-Type': 'application/json',
                 'x-secret-key': SECRET_KEY
             },
-            body: JSON.stringify({ tg_id })
+            body: JSON.stringify({
+                tg_id: Number(tg_id),
+                status: "verified"
+            })
         });
 
         if (!botResponse.ok) {
             const errorText = await botResponse.text();
             console.error('Bot API Error:', errorText);
-            return res.status(botResponse.status).json({ error: 'Verification failed at bot level' });
+            return res.status(botResponse.status).json({ error: `Bot Verification Failed: ${errorText}` });
         }
 
         const data = await botResponse.json();
