@@ -104,40 +104,36 @@
         <div
             class="terminal-box p-8 rounded-lg text-left h-full flex flex-col justify-between backdrop-blur-md bg-black/80">
             <div>
-                <h2 class="text-2xl font-bold text-[#39FF14] mb-4 uppercase tracking-tighter">🏥 Unlock the ICU</h2>
-                <p class="text-gray-400 text-sm mb-6">Requirement: Hold $20 USD in $DCC to equip the Talisman.</p>
+                <h2 class="text-2xl font-bold text-[#39FF14] mb-4 uppercase tracking-tighter">🏥 PATIENT VERIFICATION
+                    PORTAL</h2>
+                <p class="text-gray-400 text-sm mb-6">Requirement: Hold $20 USD in $DCC to activate Immunity Protocol.
+                </p>
 
                 <h3 class="text-white font-bold mb-4 border-b border-[#39FF14]/30 pb-2">YOUR PREMIUM BENEFITS:</h3>
 
                 <ul class="space-y-4 text-sm">
                     <li class="flex items-start gap-3">
-                        <span class="text-xl">⚡</span>
+                        <span class="text-xl">🛡️</span>
                         <div>
-                            <strong class="text-white block">Priority Intake</strong>
-                            <span class="text-gray-500">Skip the waiting room. Dr. Degen sees you immediately—zero
-                                cooldowns.</span>
+                            <strong class="text-white block">Zero-Deductible Safety</strong>
+                            <span class="text-gray-500">Liquidity is burnt. Ownership renounced. You pay nothing if the
+                                dev disappears (because he can't).</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-xl">🔭</span>
+                        <span class="text-xl">💉</span>
                         <div>
-                            <strong class="text-white block">The ICU Monitor</strong>
-                            <span class="text-gray-500">Admit tokens to 24/7 surveillance. Set your own alert
-                                protocols.</span>
+                            <strong class="text-white block">Paper-Hand Resistance</strong>
+                            <span class="text-gray-500">Our protocol surgically removes the urge to sell early. Weak
+                                hands are filtered out.</span>
                         </div>
                     </li>
-                    <li class="pl-8 space-y-1 text-xs text-gray-400 font-mono">
-                        <div class="flex items-center gap-2"><span class="text-[#39FF14]">🩺</span> Critical Care (±10%
-                            Moves)</div>
-                        <div class="flex items-center gap-2"><span class="text-red-500">💀</span> Morgue Watch (±50%
-                            Moves)</div>
-                    </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-xl">📜</span>
+                        <span class="text-xl">🔒</span>
                         <div>
-                            <strong class="text-white block">Official Death Certificates</strong>
-                            <span class="text-gray-500">Generate viral, stamp-certified reports for every diagnosis to
-                                share on X.</span>
+                            <strong class="text-white block">Lifetime Coverage</strong>
+                            <span class="text-gray-500">Your policy never expires. As long as you hold $DCC, you are
+                                under the Chief Officer’s protection.</span>
                         </div>
                     </li>
                 </ul>
@@ -151,8 +147,8 @@
             <div class="mb-6">
                 <img src="/dcc-logo.jpg"
                     class="w-20 h-20 mx-auto rounded-full border-2 border-[#39FF14] shadow-[0_0_15px_#39FF14] mb-4">
-                <h1 class="text-xl font-bold text-[#39FF14] glitch-text">ACCESS CONTROL</h1>
-                <p class="text-gray-400 text-xs">SECURE VERIFICATION</p>
+                <h1 class="text-xl font-bold text-[#39FF14] glitch-text">VERIFY IMMUNITY STATUS</h1>
+                <p class="text-gray-400 text-xs">CHECK YOUR $DCC COVERAGE ELIGIBILITY</p>
             </div>
 
             <div id="status-display" class="mb-6 border-b border-gray-800 pb-4">
@@ -165,7 +161,7 @@
             <div id="action-area">
                 <button onclick="connectWallet()"
                     class="heartbeat w-full bg-[#39FF14] text-black font-black py-4 px-6 rounded hover:bg-[#32d911] transition-colors uppercase tracking-widest text-lg shadow-[0_0_15px_#39FF14] flex items-center justify-center gap-2">
-                    <span>🔌</span> Connect Wallet
+                    <span>🔍</span> SCAN FOR INFECTION
                 </button>
                 <p class="text-gray-600 text-[10px] mt-2">Sign signature to prove ownership. No gas needed.</p>
             </div>
@@ -176,7 +172,7 @@
                     <div class="bg-[#39FF14] h-2.5 rounded-full animate-[width_2s_ease-in-out_infinite]"
                         style="width: 45%"></div>
                 </div>
-                <p class="text-[#39FF14] text-xs blink font-mono">SCANNING BLOCKCHAIN ASSETS...</p>
+                <p class="text-gray-300 text-xs blink font-mono">ANALYZING ON-CHAIN VITALS...</p>
             </div>
 
             <!-- Failure State -->
@@ -184,17 +180,17 @@
                 <div class="p-4 bg-red-900/20 border border-red-500 rounded text-red-200 text-sm">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🚫</span>
-                        <strong class="text-red-500 text-lg uppercase">ACCESS DENIED</strong>
+                        <strong class="text-red-500 text-lg uppercase">[CRITICAL] NO COVERAGE DETECTED</strong>
                     </div>
-                    <p class="text-white font-bold mb-1">Insufficient Insurance</p>
-                    <p class="text-gray-400 text-xs mb-4">You need $20.00 in $DCC to enter the ICU.</p>
+                    <p class="text-white font-bold mb-1">Patient is exposed to severe rug-pull variants.</p>
+                    <p class="text-gray-400 text-xs mb-4">Immediate injection of $DCC required.</p>
                     <p class="font-mono text-center bg-black/50 p-2 rounded border border-red-500/30 mb-4">
                         Current Value: <span id="user-holding-value" class="text-white font-bold">$0.00</span>
                     </p>
                     <a href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=So11111111111111111111111111111111111111112"
                         target="_blank"
                         class="block w-full text-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded uppercase tracking-wider transition-colors">
-                        💊 BUY $DCC NOW
+                        💊 GET PRESCRIPTION ($DCC)
                     </a>
                 </div>
             </div>
@@ -209,17 +205,18 @@
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-2xl">✅</span>
                         <div>
-                            <strong class="text-[#39FF14] text-lg block uppercase">TALISMAN EQUIPPED</strong>
-                            <span class="text-xs text-green-300">Access Granted: VIP Ward</span>
+                            <strong class="text-[#39FF14] text-lg block uppercase">[PASSED] IMMUNITY ACTIVE</strong>
+                            <span class="text-xs text-green-300">Patient is holding $DCC. Viral load: 0%.</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-300 text-xs mb-4">You have successfully proven your $DCC holdings.</p>
+                    <p class="text-gray-300 text-xs mb-4">Paper-hand reflexes: NEGATIVE. You are cleared for moon
+                        mission.</p>
 
                     <ul class="space-y-2 mb-6 font-mono text-xs">
                         <li class="flex justify-between border-b border-green-500/20 pb-1">
                             <span>Priority Intake:</span>
-                            <span class="text-[#39FF14] font-bold">ACTIVE</span>
+                            <span class="text-[#39FF14] font-bold">VERIFIED</span>
                         </li>
                         <li class="flex justify-between border-b border-green-500/20 pb-1">
                             <span>ICU Monitor:</span>
