@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-black text-white font-mono">
+<html lang="en" class="bg-black text-white font-mono cursor-none">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$DCC Verification Portal</title>
+    <link rel="icon" href="/dcc-logo.jpg">
     <!-- Reuse main styles -->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/solana-web3.js/1.91.0/solana-web3.min.js"></script>
+    <!-- Switch to UNPKG and specific IIFE build for browser compatibility -->
+    <script src="https://unpkg.com/@solana/web3.js@1.91.8/lib/index.iife.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap');
 
         body {
             font-family: 'JetBrains Mono', monospace;
         }
+
+        /* Custom Syringe Cursor */
+        body {
+            cursor: url('/assets/cursor-syringe.svg') 0 32, auto;
+        }
+
+        a,
+        button,
+        [role="button"],
+        .clickable {
+            cursor: url('/assets/cursor-syringe-active.svg') 0 32, pointer;
+        }
+
+        body:active,
+        a:active,
+        button:active,
+        [role="button"]:active,
+        .clickable:active {
+            cursor: url('/assets/cursor-syringe-active.svg') 0 32, auto;
+        }
+
+        /* Fix background image path to absolute */
 
         .glitch-text {
             position: relative;
@@ -71,56 +95,154 @@
     </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center bg-[url('../assets/triage-bg.png')] bg-cover bg-center">
+<body class="min-h-screen flex items-center justify-center bg-[url('/assets/triage-bg.png')] bg-cover bg-center">
 
     <div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-0"></div>
 
-    <div class="relative z-10 w-full max-w-md p-6">
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <img src="../dcc-logo.jpg"
-                class="w-24 h-24 mx-auto rounded-full border-4 border-[#39FF14] shadow-[0_0_20px_#39FF14] mb-4">
-            <h1 class="text-3xl font-bold text-[#39FF14] mb-2 glitch-text">ACCESS CONTROL</h1>
-            <p class="text-gray-400 text-sm">SECURE TALISMAN VERIFICATION</p>
+    <div class="relative z-10 w-full max-w-4xl p-6 grid md:grid-cols-2 gap-8 items-start">
+        <!-- Left Panel: Sales Pitch (Benefits) -->
+        <div
+            class="terminal-box p-8 rounded-lg text-left h-full flex flex-col justify-between backdrop-blur-md bg-black/80">
+            <div>
+                <h2 class="text-2xl font-bold text-[#39FF14] mb-4 uppercase tracking-tighter">🏥 Unlock the ICU</h2>
+                <p class="text-gray-400 text-sm mb-6">Requirement: Hold $20 USD in $DCC to equip the Talisman.</p>
+
+                <h3 class="text-white font-bold mb-4 border-b border-[#39FF14]/30 pb-2">YOUR PREMIUM BENEFITS:</h3>
+
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <span class="text-xl">⚡</span>
+                        <div>
+                            <strong class="text-white block">Priority Intake</strong>
+                            <span class="text-gray-500">Skip the waiting room. Dr. Degen sees you immediately—zero
+                                cooldowns.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-xl">🔭</span>
+                        <div>
+                            <strong class="text-white block">The ICU Monitor</strong>
+                            <span class="text-gray-500">Admit tokens to 24/7 surveillance. Set your own alert
+                                protocols.</span>
+                        </div>
+                    </li>
+                    <li class="pl-8 space-y-1 text-xs text-gray-400 font-mono">
+                        <div class="flex items-center gap-2"><span class="text-[#39FF14]">🩺</span> Critical Care (±10%
+                            Moves)</div>
+                        <div class="flex items-center gap-2"><span class="text-red-500">💀</span> Morgue Watch (±50%
+                            Moves)</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-xl">📜</span>
+                        <div>
+                            <strong class="text-white block">Official Death Certificates</strong>
+                            <span class="text-gray-500">Generate viral, stamp-certified reports for every diagnosis to
+                                share on X.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Card -->
-        <div class="terminal-box p-8 rounded-lg text-center" id="main-card">
-            <div id="status-display" class="mb-6">
-                <p class="text-white text-lg mb-2">IDENTITY VERIFICATION REQUIRED</p>
-                <p class="text-xs text-gray-500 font-mono">TG_ID: <span id="tg-id-display"
-                        class="text-[#39FF14]">DETECTING...</span></p>
+        <!-- Right Panel: Interaction Terminal -->
+        <div class="terminal-box p-8 rounded-lg text-center h-full relative overflow-hidden backdrop-blur-md bg-black/90"
+            id="main-card">
+            <!-- Header -->
+            <div class="mb-6">
+                <img src="/dcc-logo.jpg"
+                    class="w-20 h-20 mx-auto rounded-full border-2 border-[#39FF14] shadow-[0_0_15px_#39FF14] mb-4">
+                <h1 class="text-xl font-bold text-[#39FF14] glitch-text">ACCESS CONTROL</h1>
+                <p class="text-gray-400 text-xs">SECURE VERIFICATION</p>
             </div>
 
+            <div id="status-display" class="mb-6 border-b border-gray-800 pb-4">
+                <p class="text-white text-lg mb-2">IDENTITY VERIFICATION</p>
+                <p class="text-xs text-gray-500 font-mono">TG_ID: <span id="tg-id-display"
+                        class="text-[#39FF14] animate-pulse">DETECTING...</span></p>
+            </div>
+
+            <!-- Pre-Connection State -->
             <div id="action-area">
                 <button onclick="connectWallet()"
-                    class="heartbeat w-full bg-[#39FF14] text-black font-black py-4 px-6 rounded hover:bg-[#32d911] transition-colors uppercase tracking-widest text-lg shadow-[0_0_15px_#39FF14]">
-                    Connect Wallet
+                    class="heartbeat w-full bg-[#39FF14] text-black font-black py-4 px-6 rounded hover:bg-[#32d911] transition-colors uppercase tracking-widest text-lg shadow-[0_0_15px_#39FF14] flex items-center justify-center gap-2">
+                    <span>🔌</span> Connect Wallet
                 </button>
+                <p class="text-gray-600 text-[10px] mt-2">Sign signature to prove ownership. No gas needed.</p>
             </div>
 
+            <!-- Loading State -->
             <div id="loading" class="hidden mt-4">
-                <div class="w-full bg-gray-900 rounded-full h-2.5 mb-2">
+                <div class="w-full bg-gray-900 rounded-full h-2.5 mb-2 overflow-hidden border border-[#39FF14]/30">
                     <div class="bg-[#39FF14] h-2.5 rounded-full animate-[width_2s_ease-in-out_infinite]"
                         style="width: 45%"></div>
                 </div>
-                <p class="text-[#39FF14] text-xs blink">SCANNING ASSETS...</p>
+                <p class="text-[#39FF14] text-xs blink font-mono">SCANNING BLOCKCHAIN ASSETS...</p>
             </div>
 
-            <div id="error-msg"
-                class="hidden mt-4 p-3 bg-red-900/50 border border-red-500 rounded text-red-200 text-sm"></div>
+            <!-- Failure State -->
+            <div id="error-msg" class="hidden mt-4 text-left animate-in fade-in slide-in-from-bottom-4">
+                <div class="p-4 bg-red-900/20 border border-red-500 rounded text-red-200 text-sm">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">🚫</span>
+                        <strong class="text-red-500 text-lg uppercase">ACCESS DENIED</strong>
+                    </div>
+                    <p class="text-white font-bold mb-1">Insufficient Insurance</p>
+                    <p class="text-gray-400 text-xs mb-4">You need $20.00 in $DCC to enter the ICU.</p>
+                    <p class="font-mono text-center bg-black/50 p-2 rounded border border-red-500/30 mb-4">
+                        Current Value: <span id="user-holding-value" class="text-white font-bold">$0.00</span>
+                    </p>
+                    <a href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=So11111111111111111111111111111111111111112"
+                        target="_blank"
+                        class="block w-full text-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded uppercase tracking-wider transition-colors">
+                        💊 BUY $DCC NOW
+                    </a>
+                </div>
+            </div>
 
-            <div id="success-msg"
-                class="hidden mt-4 p-3 bg-green-900/50 border border-[#39FF14] rounded text-[#39FF14] text-sm">
-                <p class="font-bold text-lg">ACCESS GRANTED</p>
-                <p>Talisman Equipped. Check Telegram.</p>
+            <!-- Success State -->
+            <div id="success-msg" class="hidden mt-4 text-left animate-in fade-in slide-in-from-bottom-4">
+                <div
+                    class="p-4 bg-green-900/10 border border-[#39FF14] rounded text-green-100 text-sm relative overflow-hidden">
+                    <!-- Success Background Effect -->
+                    <div class="absolute inset-0 bg-[#39FF14]/5 mix-blend-overlay pointer-events-none"></div>
+
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-2xl">✅</span>
+                        <div>
+                            <strong class="text-[#39FF14] text-lg block uppercase">TALISMAN EQUIPPED</strong>
+                            <span class="text-xs text-green-300">Access Granted: VIP Ward</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 text-xs mb-4">You have successfully proven your $DCC holdings.</p>
+
+                    <ul class="space-y-2 mb-6 font-mono text-xs">
+                        <li class="flex justify-between border-b border-green-500/20 pb-1">
+                            <span>Priority Intake:</span>
+                            <span class="text-[#39FF14] font-bold">ACTIVE</span>
+                        </li>
+                        <li class="flex justify-between border-b border-green-500/20 pb-1">
+                            <span>ICU Monitor:</span>
+                            <span class="text-[#39FF14] font-bold">UNLOCKED</span>
+                        </li>
+                        <li class="flex justify-between border-b border-green-500/20 pb-1">
+                            <span>Image Generator:</span>
+                            <span class="text-[#39FF14] font-bold">ONLINE</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://t.me/DegenCureCenter"
+                        class="block w-full text-center bg-[#39FF14] hover:bg-[#32d911] text-black font-black py-3 rounded uppercase tracking-wider shadow-[0_0_15px_#39FF14] transition-all transform hover:scale-105">
+                        🚑 RETURN TO TELEGRAM
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         // CONFIGURATION
-        const DCC_CA = 'REPLACE_WITH_DCC_CA'; // User needs to update this
+        const DCC_CA = 'So11111111111111111111111111111111111111112'; // Wrapped SOL for testing
         const MIN_USD_VALUE = 20;
 
         // Utils
@@ -136,22 +258,45 @@
                 display.innerText = tgId;
             } else {
                 display.innerText = 'NOT FOUND';
-                display.classList.remove('text-[#39FF14]');
+                display.classList.remove('text-[#39FF14]', 'animate-pulse');
                 display.classList.add('text-red-500');
-                showError('Missing Telegram ID. Please launch from the Bot.');
             }
         };
 
-        function showError(msg) {
-            const el = document.getElementById('error-msg');
-            el.innerText = msg;
-            el.classList.remove('hidden');
-            document.getElementById('loading').classList.add('hidden');
+
+        function showLoading() {
+            document.getElementById('action-area').classList.add('hidden');
+            document.getElementById('error-msg').classList.add('hidden');
+            document.getElementById('success-msg').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
         }
+
+        function showCustomError(title, msg, value) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('action-area').classList.add('hidden');
+
+            const errorDiv = document.getElementById('error-msg');
+            // Update dynamic value if provided
+            if (value !== undefined) {
+                document.getElementById('user-holding-value').innerText = '$' + value.toFixed(2);
+            } else {
+                document.getElementById('user-holding-value').innerText = '$0.00';
+            }
+
+            errorDiv.classList.remove('hidden');
+        }
+
+        function showSystemError(msg) {
+            alert(msg);
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('action-area').classList.remove('hidden');
+        }
+
 
         function showSuccess() {
             document.getElementById('action-area').classList.add('hidden');
             document.getElementById('loading').classList.add('hidden');
+            document.getElementById('error-msg').classList.add('hidden');
             document.getElementById('success-msg').classList.remove('hidden');
             document.getElementById('status-display').classList.add('opacity-50');
         }
@@ -161,12 +306,7 @@
             const tgId = params.get('tg_id');
 
             if (!tgId) {
-                showError("Cannot proceed without TG_ID.");
-                return;
-            }
-
-            if (DCC_CA === 'REPLACE_WITH_DCC_CA') {
-                showError("System Error: Contract Address not configured.");
+                showSystemError("Cannot proceed without TG_ID. Please open from Telegram.");
                 return;
             }
 
@@ -175,7 +315,6 @@
                 const { solana } = window;
                 if (!solana || !solana.isPhantom) {
                     window.open('https://phantom.app/', '_blank');
-                    showError("Phantom Wallet not found. Please install it.");
                     return;
                 }
 
@@ -183,52 +322,65 @@
                 const publicKey = response.publicKey.toString();
 
                 // UI Update
-                document.getElementById('action-area').classList.add('hidden');
-                document.getElementById('loading').classList.remove('hidden');
+                showLoading();
 
                 // 2. Fetch Balance and Price
                 await verifyAssets(publicKey, tgId);
 
             } catch (err) {
                 console.error(err);
-                showError("Wallet connection failed: " + err.message);
-                document.getElementById('action-area').classList.remove('hidden');
+                showSystemError("Wallet connection failed: " + err.message);
             }
         }
 
         async function verifyAssets(walletAddress, tgId) {
             try {
                 // RPC Connection
-                const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+                const connection = new solanaWeb3.Connection('https://solana-rpc.publicnode.com', 'confirmed');
                 const tokenMint = new solanaWeb3.PublicKey(DCC_CA);
                 const wallet = new solanaWeb3.PublicKey(walletAddress);
-
-                // Fetch Token Accounts
-                const tokenAccounts = await connection.getParsedTokenAccountsByOwner(wallet, {
-                    mint: tokenMint
-                });
-
+                // Fetch Balance
                 let balance = 0;
-                if (tokenAccounts.value.length > 0) {
-                    balance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+
+                // If Target is Wrapped SOL, check NATIVE SOL balance (Lamports)
+                if (DCC_CA === 'So11111111111111111111111111111111111111112') {
+                    const lamports = await connection.getBalance(wallet);
+                    balance = lamports / 1000000000; // 1e9
+                } else {
+                    // Normal SPL Token Check
+                    const tokenAccounts = await connection.getParsedTokenAccountsByOwner(wallet, {
+                        mint: tokenMint
+                    });
+
+                    if (tokenAccounts.value.length > 0) {
+                        balance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+                    }
                 }
 
                 // Fetch Price
-                const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${DCC_CA}`);
-                const priceData = await priceRes.json();
+                let priceUsd = 0;
 
-                if (!priceData.pairs || priceData.pairs.length === 0) {
-                    throw new Error("Could not fetch token price.");
+                if (DCC_CA === 'So11111111111111111111111111111111111111112') {
+                    // Use Binance API for reliable SOL price (Jupiter returned 401)
+                    const binanceRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=SOLUSDT');
+                    const binanceData = await binanceRes.json();
+                    priceUsd = parseFloat(binanceData.price);
+                } else {
+                    // Use DexScreener for DCC (Meme Coin)
+                    const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${DCC_CA}`);
+                    const priceData = await priceRes.json();
+                    if (!priceData.pairs || priceData.pairs.length === 0) {
+                        throw new Error("Could not fetch token price.");
+                    }
+                    priceUsd = parseFloat(priceData.pairs[0].priceUsd);
                 }
 
-                const priceUsd = parseFloat(priceData.pairs[0].priceUsd);
                 const totalValue = balance * priceUsd;
 
                 console.log(`Balance: ${balance}, Price: ${priceUsd}, Value: ${totalValue}`);
 
                 if (totalValue < MIN_USD_VALUE) {
-                    showError(`Insufficient Funds. Required: $${MIN_USD_VALUE}. Found: $${totalValue.toFixed(2)}.`);
-                    // document.getElementById('action-area').classList.remove('hidden'); // allow retry
+                    showCustomError("Insufficient Funds", `Required: $${MIN_USD_VALUE}`, totalValue);
                     return;
                 }
 
@@ -237,8 +389,7 @@
 
             } catch (err) {
                 console.error(err);
-                showError("Verification Error: " + err.message);
-                document.getElementById('action-area').classList.remove('hidden');
+                showSystemError("Verification Error: " + err.message);
             }
         }
 
@@ -259,7 +410,7 @@
 
             } catch (err) {
                 console.error(err);
-                showError("Server Error: " + err.message);
+                showSystemError("Server Error: " + err.message);
             }
         }
     </script>
