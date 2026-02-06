@@ -4,10 +4,14 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { tg_id } = req.body;
+    const { tg_id, wallet } = req.body;
 
     if (!tg_id) {
         return res.status(400).json({ error: 'Missing tg_id' });
+    }
+
+    if (!wallet) {
+        return res.status(400).json({ error: 'Missing wallet' });
     }
 
     const SECRET_KEY = process.env.VERIFICATION_SECRET;
@@ -19,8 +23,8 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Forward the verification to the Telegram Bot
-        const botResponse = await fetch(`https://${BOT_URL}/api/verify-user`, {
+        // Forward the verification to the Telegram Bot (HTTP - no SSL on VPS)
+        const botResponse = await fetch(`http://${BOT_URL}/api/verify-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +32,8 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 tg_id: Number(tg_id),
-                status: "verified"
+                status: "verified",
+                wallet: wallet
             })
         });
 
