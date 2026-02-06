@@ -1070,65 +1070,87 @@
             <div class="relative">
                 <div class="border border-gray-700 rounded-xl overflow-hidden shadow-2xl relative"
                     style="background-color: rgba(20, 20, 20, 0.95);">
-                    <!-- Terminal Header -->
-                    <div class="px-4 py-2 flex items-center justify-between border-b border-gray-700"
-                        style="background-color: rgba(40, 40, 40, 0.95);">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">
-                                bot</div>
-                            <div>
-                                <div class="text-white font-bold text-sm">Dr. Degen Bot 🤖</div>
-                                <div class="text-blue-400 text-xs text-opacity-80">Admin</div>
-                            </div>
-                        </div>
-                        <div class="text-gray-500 text-xs font-mono">now</div>
-                    </div>
+<div class="chat-bubble medical-terminal">
+    <div class="bot-header">
+        <div class="bot-avatar-container">
+            <div class="bot-avatar">🤖</div>
+            <div class="online-dot"></div>
+        </div>
+        <div class="bot-info">
+            <span class="bot-name">Dr. Degen Bot <span class="verified-badge">✓</span></span>
+            <span class="bot-role">Admin • Triage Unit</span>
+        </div>
+        <span class="bot-time">now</span>
+    </div>
 
-                    <!-- Terminal Content -->
-                    <div class="p-6 font-mono text-sm leading-relaxed space-y-4 min-h-[300px]"
-                        style="background-color: rgba(20, 20, 20, 0.95);">
-                        <div class="text-gray-300">
-                            <strong class="text-blue-400">📋 TRIAGE REPORT:</strong> $JEEP<br>
-                            <div class="pl-4 mt-2 border-l-2 border-gray-700">
-                                <span class="block mb-2">🩺 <strong class="text-white">VITALS</strong></span>
-                                <div class="flex flex-col gap-1">
-                                    <div class="flex justify-between items-start gap-4">
-                                        <span class="text-gray-400">💓 Pulse:</span>
-                                        <span class="text-red-500 font-bold animate-pulse text-right">Flatline 💀 <span
-                                                class="text-gray-500 text-xs">($300 Vol)</span></span>
-                                    </div>
-                                    <div class="flex justify-between items-start gap-4">
-                                        <span class="text-gray-400">⚖️ Weight:</span>
-                                        <span class="text-orange-400 text-right">Anorexic 🦴 <span
-                                                class="text-gray-500 text-xs">($12k MC)</span></span>
-                                    </div>
-                                    <div class="flex justify-between items-start gap-4">
-                                        <span class="text-gray-400">🩸 Pressure:</span>
-                                        <span class="text-red-500 font-bold text-right">Critical 💣 <span
-                                                class="text-gray-500 text-xs">(Liq < 2%)</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="terminal-body">
+        <div class="terminal-header">
+            📋 <strong>TRIAGE REPORT: $NONAME</strong>
+        </div>
 
-                        <div class="text-gray-300">
-                            <strong class="text-purple-400">🔬 DIAGNOSIS</strong><br>
-                            Patient has been abandoned by the family. Vital organs were harvested by the dev 3 hours
-                            ago.
-                        </div>
+        <div class="dashed-line"></div>
 
-                        <div class="text-gray-300">
-                            <strong class="text-tox-green">💊 PRESCRIPTION</strong><br>
-                            Pull the plug. There is nothing to save here. Move remaining dust into <strong
-                                class="text-tox-green">$DCC</strong> before infection spreads.
-                        </div>
+        <div class="data-grid">
+            <div class="data-label">💓 Pulse</div>
+            <div class="data-value val-white">$498.0 <span class="trend-down">📉</span></div>
 
-                        <div class="pt-4 border-t border-gray-800 text-xs text-gray-500 italic">
-                            SIGNED, Dr. Degen, MD 🥼
-                        </div>
-                    </div>
+            <div class="data-label">🦴 Weight</div>
+            <div class="data-value val-white">$4.9K <span class="sub-text">(Skeleton)</span></div>
 
+            <div class="data-label">🩸 Pressure</div>
+            <div class="data-value val-crit">CRITICAL (0%) ⚠️</div>
+
+            <div class="data-label">🌡️ Temp</div>
+            <div class="data-value val-orange">Panic Selling 😱</div>
+        </div>
+
+        <div class="dashed-line"></div>
+
+        <div class="section-header">🩻 X-RAY SCAN</div>
+        <div class="data-grid">
+            <div class="data-label">⚠️ Holders</div>
+            <div class="data-value val-red">85% (Centralized)</div>
+
+            <div class="data-label">🔓 LP Status</div>
+            <div class="data-value val-crit">UNLOCKED</div>
+        </div>
+
+        <div class="dashed-line"></div>
+
+        <div class="text-block">
+            <span class="label-purple">🔬 DIAGNOSIS:</span><br>
+            <span class="text-body">Zero liquidity arterial blockage. Terminal hemorrhage detected.</span>
+        </div>
+
+        <div class="text-block mt-2">
+            <span class="label-green">💊 PRESCRIPTION:</span><br>
+            <span class="text-body">Inject <span class="highlight-dcc">$DCC</span> immediately.</span>
+        </div>
+
+        <div class="premium-lock-container">
+            <div class="lock-overlay">
+                <span class="lock-icon">🔒</span>
+                <span class="lock-msg">IMMUNITY PROTOCOL REQUIRED</span>
+                <a href="#" class="btn-unlock-small">GET $DCC</a>
+            </div>
+
+            <div class="blurred-content">
+                <div class="data-grid">
+                    <div class="data-label">🕵️ Dev History</div>
+                    <div class="data-value">Rugged 3 Projects (Verified)</div>
+                    <div class="data-label">🧠 Insider Check</div>
+                    <div class="data-value">Bundled Wallets Detected</div>
+                    <div class="data-label">🤖 AI Prediction</div>
+                    <div class="data-value">Crash Imminent (-99%)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bot-footer">
+            SIGNED, Dr. Degen, MD 🥼
+        </div>
+    </div>
+</div>
                     <!-- Scanline Overlay -->
                     <div
                         class="absolute inset-0 bg-repeat bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg==')] opacity-[0.03] pointer-events-none">

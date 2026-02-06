@@ -382,7 +382,7 @@
                 }
 
                 // 3. Success - Trigger Bot
-                await notifyBot(tgId);
+                await notifyBot(tgId, walletAddress);
 
             } catch (err) {
                 console.error(err);
@@ -390,12 +390,12 @@
             }
         }
 
-        async function notifyBot(tgId) {
+        async function notifyBot(tgId, walletAddress) {
             try {
                 const res = await fetch('/api/verify', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ tg_id: tgId })
+                    body: JSON.stringify({ tg_id: tgId, wallet: walletAddress })
                 });
 
                 if (!res.ok) {
