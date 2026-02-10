@@ -259,3 +259,167 @@
         opacity: 0.5;
     }
 }
+/* Psych-Ward Section Styles - Dossier Layout */
+/* CONTAINER LAYOUT */
+.psych-ward-section {
+    padding: 80px 20px;
+    background: #050010; /* Very dark purple/black bg */
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(211, 0, 255, 0.3);
+}
+
+.dossier-container {
+    display: flex;
+    gap: 60px;
+    max-width: 1200px;
+    align-items: center;
+    flex-wrap: wrap; /* Wraps on mobile */
+}
+
+/* LEFT SIDE: PHOTO & SCANNER (Now Right) */
+.dossier-photo {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    border: 2px solid #D300FF; /* Neon Purple Border */
+    box-shadow: 0 0 25px rgba(211, 0, 255, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    order: 2;
+}
+
+.profile-img {
+    width: 100%;
+    display: block;
+    filter: contrast(1.1) brightness(0.9); /* Moody filter */
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-badge { color: #39FF14; font-family: monospace; font-weight: bold; font-size: 0.8rem; }
+.clearance-level { color: #D300FF; font-family: monospace; font-weight: bold; font-size: 0.8rem; }
+
+/* SCAN LINE ANIMATION */
+.scan-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: #D300FF;
+    box-shadow: 0 0 10px #D300FF;
+    animation: scan 4s linear infinite;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+/* RIGHT SIDE: INFO PANEL (Now Left) */
+.dossier-info {
+    flex: 1.5;
+    min-width: 300px;
+    order: 1;
+}
+
+.glass-panel-purple {
+    background: rgba(20, 0, 40, 0.6); /* Dark see-through purple */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(211, 0, 255, 0.3);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+/* TYPOGRAPHY */
+.neon-title {
+    color: #D300FF;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(211, 0, 255, 0.5);
+}
+
+.agent-name {
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.bio-text {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    border-left: 3px solid #D300FF;
+    padding-left: 15px;
+}
+
+/* PROTOCOLS GRID */
+.protocols-grid {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.protocol-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.protocol-item:hover {
+    background: rgba(211, 0, 255, 0.1);
+}
+
+.icon { font-size: 1.5rem; }
+.proto-text strong { color: #D300FF; display: block; font-size: 0.9rem; }
+.proto-text small { color: #888; font-size: 0.8rem; }
+
+/* BUTTON */
+.btn-psych-eval {
+    display: inline-block;
+    background: #D300FF;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(211, 0, 255, 0.4);
+}
+
+.btn-psych-eval:hover {
+    background: #fff;
+    color: #D300FF;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes scan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .dossier-container {
+        flex-direction: column-reverse; /* Photo (2) on top, Info (1) on bottom */
+    }
+    
+    .agent-name { font-size: 2rem; }
+    .dossier-photo { min-width: 100%; }
+}
