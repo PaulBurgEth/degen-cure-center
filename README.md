@@ -20,6 +20,10 @@ A medical-themed Solana memecoin with a gamified **Triage Bot** that analyzes to
 
 Static HTML + Tailwind CSS · Solana blockchain · Pump.fun launch · Telegram bot integration.
 
+## Deploy
+
+Hosted on Cloudflare Pages (project `degen-cure-center`), static only. Vercel is no longer used; `middleware.js`, `api/` and `verify/` are not deployed. Steps in [docs/DECISIONS.md](docs/DECISIONS.md).
+
 ## Community
 
 - Telegram: [@DegenCureCenter](https://t.me/DegenCureCenter)
